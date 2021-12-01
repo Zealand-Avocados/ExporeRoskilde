@@ -1,15 +1,13 @@
 ﻿using ExploreRoskilde.Models;
-using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace ExploreRoskilde.Database
 {
     public static class Database
     {
-        private static string _filePath = "Places.json";
+        public static string PlacesFilePath = "Places.json";
 
         public static void WriteToJson(string filePath, Dictionary<int, Place> places)
         {
