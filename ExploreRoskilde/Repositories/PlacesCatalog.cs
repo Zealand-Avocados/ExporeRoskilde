@@ -8,8 +8,16 @@ namespace ExploreRoskilde.Repositories
 {
     public class PlacesCatalog : IPlacesCatalog
     {
-        public Dictionary<int, Place> AllPLaces => Database.Database.ReadJson(Database.Database.PlacesFilePath);
+        public Dictionary<int, Place> AllPlaces() => Database.Database.ReadJson(Database.Database.PlacesFilePath);
 
-
+        public Place GetPlaceById(int id)
+        {
+            return AllPlaces()[id];
+        }
+        
+        
+        
+        
+        
     }
 }

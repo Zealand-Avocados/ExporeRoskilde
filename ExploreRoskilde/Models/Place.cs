@@ -22,8 +22,7 @@ namespace ExploreRoskilde.Models
             Category = category;
         }
 
-
-
+        
         public string Id { get; }
         public string Title { get; }
         public string Description { get; }
