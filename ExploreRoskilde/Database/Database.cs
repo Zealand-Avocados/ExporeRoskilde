@@ -1,6 +1,8 @@
 ﻿using ExploreRoskilde.Models;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
+using Newtonsoft.Json;
 
 
 namespace ExploreRoskilde.Database
@@ -11,14 +13,15 @@ namespace ExploreRoskilde.Database
 
         public static void WriteToJson(string filePath, Dictionary<int, Place> places)
         {
-            string output = System.Text.Json.JsonSerializer.Serialize(places);
+            //  string output = System.Text.Json.JsonSerializer.Serialize(places);
+            string output = JsonConvert.SerializeObject(places);
             File.WriteAllText(filePath, output);
         }
 
         public static Dictionary<int, Place> ReadJson(string filePath)
         {
-            string jsonString = File.ReadAllText(filePath);
-            return System.Text.Json.JsonSerializer.Deserialize<Dictionary<int,Place>>(jsonString);
+            var jsonString = File.ReadAllText(filePath);
+            return JsonConvert.DeserializeObject<Dictionary<int, Place>>(jsonString);
         }
     }
 }

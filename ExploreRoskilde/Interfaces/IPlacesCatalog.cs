@@ -10,6 +10,9 @@ namespace ExploreRoskilde.Interfaces
 
         public Place GetPlaceById(int id);
 
+        public void AddPlace(Place place);
+
+
 
 
     }

@@ -75,3 +75,4 @@ C:/Users/malsh/source/repos/ExporeRoskilde/ExploreRoskilde/obj/Debug/netcoreapp3
 /Users/marholoubek/Documents/Coding/C#/ExploreRoskildeSolution/ExploreRoskilde/obj/Debug/netcoreapp3.1/ExploreRoskilde.pdb
 /Users/marholoubek/Documents/Coding/C#/ExploreRoskildeSolution/ExploreRoskilde/obj/Debug/netcoreapp3.1/ExploreRoskilde.genruntimeconfig.cache
 /Users/marholoubek/Documents/Coding/C#/ExploreRoskildeSolution/ExploreRoskilde/obj/Debug/netcoreapp3.1/ExploreRoskilde.csproj.CopyComplete
+/Users/marholoubek/Documents/Coding/C#/ExploreRoskildeSolution/ExploreRoskilde/bin/Debug/netcoreapp3.1/Newtonsoft.Json.dll

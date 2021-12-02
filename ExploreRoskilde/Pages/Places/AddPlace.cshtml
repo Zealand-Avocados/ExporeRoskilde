@@ -7,6 +7,9 @@
 }
 <h1>@ViewData["Title"]</h1>
 
+
+<form class="form-horizontal" method="post">
+
 <div class="form-group">
         <label asp-for="@Model.Place.Id" class="control-label"> Id </label>
         <input asp-for="@Model.Place.Id" class="form-control" />
@@ -28,10 +31,24 @@
         <label asp-for="@Model.Place.Rating" class="control-label"> Rating </label>
         <input asp-for="@Model.Place.Rating" class="form-control" />
     </div>
-      <div class="form-group">
-        <label asp-for="@Model.Place.Category" class="control-label"> Catagory </label>
-        <input asp-for="@Model.Place.Category" class="form-control" />
+<div class="form-group">
+    <label asp-for="@Model.Place.Category" class="control-label"> Catagory </label>
+    <input asp-for="@Model.Place.Category" class="form-control" />
+</div>
+
+<div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="border-light">
+            Add Book
+        </button>
     </div>
+</div>
+
+</form>
+
+
+
+    
     
     
 

@@ -14,6 +14,14 @@ namespace ExploreRoskilde.Repositories
         {
             return AllPlaces()[id];
         }
+
+
+        public void AddPlace(Place place)
+        {
+            Dictionary<int, Place> places = AllPlaces();
+            places.Add(place.Id, place);
+            Database.Database.WriteToJson(Database.Database.PlacesFilePath, places);
+        }
         
         
         
