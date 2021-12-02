@@ -11,7 +11,7 @@ namespace ExploreRoskilde.Models
     public class Place
     {
         public Place(
-            string id,  string title,  string description, Rating rating, Address address, Category category
+            int id,  string title,  string description, Rating rating, Address address, Category category
         )
         {
             Id = id;
@@ -23,7 +23,7 @@ namespace ExploreRoskilde.Models
         }
 
         
-        public string Id { get; }
+        public int Id { get; }
         public string Title { get; }
         public string Description { get; }
         public Address Address { get; }

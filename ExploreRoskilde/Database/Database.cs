@@ -7,7 +7,7 @@ namespace ExploreRoskilde.Database
 {
     public static class Database
     {
-        public static string PlacesFilePath = "Places.json";
+        public static string PlacesFilePath = "Database/Places.json";
 
         public static void WriteToJson(string filePath, Dictionary<int, Place> places)
         {
@@ -18,7 +18,7 @@ namespace ExploreRoskilde.Database
         public static Dictionary<int, Place> ReadJson(string filePath)
         {
             string jsonString = File.ReadAllText(filePath);
-            return System.Text.Json.JsonSerializer.Deserialize<Dictionary<int, Place>>(jsonString);
+            return System.Text.Json.JsonSerializer.Deserialize<Dictionary<int,Place>>(jsonString);
         }
     }
 }

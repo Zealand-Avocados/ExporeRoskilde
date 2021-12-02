@@ -15,15 +15,12 @@ namespace ExploreRoskilde.Pages
         private readonly ILogger<IndexModel> _logger;
         
         public Dictionary<int, Place> AllPlaces {get; set; }
-        
-        IPlacesCatalog _placesCatalog;
-        
+
 
         public IndexModel(ILogger<IndexModel> logger, IPlacesCatalog catalog)
         {
             _logger = logger;
-            _placesCatalog = catalog;
-            AllPlaces = _placesCatalog.AllPlaces();
+            AllPlaces = catalog.AllPlaces();
         }
 
         public void OnGet()
