@@ -1,8 +1,17 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "7mn2RaqpYgBq3CbhWolLHJ/t1TIsvJiCNUb7PD45WFHRvS7svZVFiWGaZ+emrhsv0inztawu72lak2jkz0i+RQ==",
   "success": true,
   "projectFilePath": "/Users/marholoubek/Documents/Coding/C#/ExploreRoskildeSolution/ExploreRoskilde/ExploreRoskilde.csproj",
   "expectedPackageFiles": [],
+=======
+  "dgSpecHash": "NAYSA2AuQaodGHmHH13feJ27hRt7UjfmEyrCMzZo8DERa1r8d0qlHs8DVjSfpaAmH+WUp3e63b+65R56/O6Pfg==",
+  "success": true,
+  "projectFilePath": "/Users/marholoubek/Documents/Coding/C#/ExploreRoskildeSolution/ExploreRoskilde/ExploreRoskilde.csproj",
+  "expectedPackageFiles": [
+    "/Users/marholoubek/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+>>>>>>> main
   "logs": []
 }

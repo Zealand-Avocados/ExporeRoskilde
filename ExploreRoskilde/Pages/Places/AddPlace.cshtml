@@ -1,11 +1,54 @@
 @page
 @model ExploreRoskilde.Pages.Places.AddPlace
 
+
 @{
     ViewData["Title"] = "Add Place";
 }
 <h1>@ViewData["Title"]</h1>
 
 
+<form class="form-horizontal" method="post">
 
+<div class="form-group">
+        <label asp-for="@Model.Place.Id" class="control-label"> Id </label>
+        <input asp-for="@Model.Place.Id" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.Place.Title" class="control-label"> Title </label>
+        <input asp-for="@Model.Place.Title" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Place.Description" class="control-label"> Description </label>
+        <input asp-for="@Model.Place.Description" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Place.Address" class="control-label"> Address </label>
+        <input asp-for="@Model.Place.Address" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Place.Rating" class="control-label"> Rating </label>
+        <input asp-for="@Model.Place.Rating" class="form-control" />
+    </div>
+<div class="form-group">
+    <label asp-for="@Model.Place.Category" class="control-label"> Catagory </label>
+    <input asp-for="@Model.Place.Category" class="form-control" />
+</div>
+
+<div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="border-light">
+            Add Book
+        </button>
+    </div>
+</div>
+
+</form>
+
+
+
+    
+    
+    
 
