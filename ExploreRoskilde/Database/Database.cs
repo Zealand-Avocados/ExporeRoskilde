@@ -12,9 +12,9 @@ namespace ExploreRoskilde.Database
     {
         public static string PlacesFilePath = "Database/Places.json";
         
-        private static Dictionary<int, Place> _places = new Dictionary<int, Place>();
+        private static Dictionary<string, Place> _places = new Dictionary<string, Place>();
 
-        public static void WriteToJson(string filePath, Dictionary<int, Place> places)
+        public static void WriteToJson(string filePath, Dictionary<string, Place> places)
         {
             //  string output = System.Text.Json.JsonSerializer.Serialize(places);
             // var output = JsonConvert.SerializeObject(places);
@@ -23,7 +23,7 @@ namespace ExploreRoskilde.Database
             _places = places;
         }
 
-        public static Dictionary<int, Place> ReadJson(string filePath)
+        public static Dictionary<string, Place> ReadJson(string filePath)
         {
             // var jsonString = File.ReadAllText(filePath);
             // return JsonConvert.DeserializeObject<Dictionary<int, Place>>(jsonString);

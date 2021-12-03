@@ -2,22 +2,26 @@
 @using ExploreRoskilde.Models
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Explore Roskilde";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Explore Roskilde</h1>
+    <p>Explore Roskilde and its are with international students</p>
 
-
-
-
-
-
-    
-    @foreach (Place place in Model.AllPlaces.Values)
-     {
-         <h3>Title: @place.Title</h3>
-     }
-    
 </div>
+
+
+@foreach (Place place in Model.AllPlaces.Values)
+{
+    <div class="card my-2">
+        <h5 class="card-header">@place.Category</h5>
+        <div class="card-body">
+            <h5 class="card-title">@place.Title</h5>
+            <p class="card-text">@place.Description</p>
+            <a href="#" class="btn btn-primary">More info</a>
+            <a href="#" class="btn btn-info">Update</a>
+            <a href="#" class="btn btn-danger">Delete</a>
+        </div>
+    </div>
+}
