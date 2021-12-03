@@ -1,34 +1,34 @@
+using System;
+
 namespace ExploreRoskilde.Models
 {
     public enum Rating
     {
-        One, Two, Three, Four, Five,
+        One,
+        Two,
+        Three,
+        Four,
+        Five,
     }
-    
-    
-    
-    
+
+
     public class Place
     {
-        public Place(
-            int id,  string title,  string description, Rating rating, Address address, Category category
-        )
-        {
-            Id = id;
-            Title = title;
-            Description = description;
-            Rating = rating;
-            Address = address;
-            Category = category;
-        }
 
-        
-        public int Id { get; }
-        public string Title { get; }
-        public string Description { get; }
-        public Address Address { get; }
-        public Rating Rating { get; }
-        public Category Category { get; }
-        
+        public Place()
+        {
+            Id = Guid.NewGuid().ToString("N");
+        }
+        public string Id { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public Address Address { get; set; }
+        public Rating Rating { get; set; }
+        public Category Category { get; set; }
+
+        public override string ToString()
+        {
+            return Id + Title + Description;
+        }
     }
 }
