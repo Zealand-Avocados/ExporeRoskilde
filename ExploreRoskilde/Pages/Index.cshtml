@@ -9,15 +9,14 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 
-
-
-
-
-
-    
     @foreach (Place place in Model.AllPlaces.Values)
-     {
-         <h3>Title: @place.Title</h3>
-     }
-    
+    {
+        <h3>Title: @place.Title</h3>
+    }
+
+    @foreach (User user in Model.AllUsers.Values)
+    {
+        <h3>Name: @user.Name</h3>
+    }
+
 </div>
