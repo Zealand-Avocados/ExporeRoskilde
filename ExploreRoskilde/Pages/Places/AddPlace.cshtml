@@ -1,4 +1,5 @@
 @page
+@using ExploreRoskilde.Models
 @model ExploreRoskilde.Pages.Places.AddPlace
 
 
@@ -9,46 +10,77 @@
 
 
 <form class="form-horizontal" method="post">
-
-<div class="form-group">
-        <label asp-for="@Model.Place.Id" class="control-label"> Id </label>
-        <input asp-for="@Model.Place.Id" class="form-control" />
+    <div asp-validation-summary="ModelOnly"></div>
+    
+    <div style="width:25%" class="form-group">
+        <label asp-for="@Model.Place.Title" class="col-sm-2 control-label"></label>
+        <div class="col-sm-10">
+            <input asp-for="@Model.Place.Title" type="text" class="form-control">
+            <span asp-validation-for="@Model.Place.Title" class="text-danger"></span>
+        </div>
+    </div>
+    <div style="width:25%" class="form-group">
+        <label asp-for="@Model.Place.Description" class="col-sm-2 control-label"></label>
+        <div class="col-sm-10">
+            <input asp-for="@Model.Place.Description" type="text" class="form-control">
+            <span asp-validation-for="@Model.Place.Description" class="text-danger"></span>
+        </div>
     </div>
 
-    <div class="form-group">
-        <label asp-for="@Model.Place.Title" class="control-label"> Title </label>
-        <input asp-for="@Model.Place.Title" class="form-control" />
+    <div style="width:25%" class="form-group">
+        <label asp-for="@Model.Place.Category" class="col-sm-2 control-label"></label>
+        <div class="col-sm-10">
+            <select asp-for="@Model.Place.Category" asp-items="Html.GetEnumSelectList<Category>()" class="form-control"></select>
+            <span asp-validation-for="@Model.Place.Category" class="text-danger"></span>
+        </div>
     </div>
-    <div class="form-group">
-        <label asp-for="@Model.Place.Description" class="control-label"> Description </label>
-        <input asp-for="@Model.Place.Description" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label asp-for="@Model.Place.Address" class="control-label"> Address </label>
-        <input asp-for="@Model.Place.Address" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label asp-for="@Model.Place.Rating" class="control-label"> Rating </label>
-        <input asp-for="@Model.Place.Rating" class="form-control" />
-    </div>
-<div class="form-group">
-    <label asp-for="@Model.Place.Category" class="control-label"> Catagory </label>
-    <input asp-for="@Model.Place.Category" class="form-control" />
-</div>
 
-<div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" class="border-light">
-            Add Book
-        </button>
+    <div style="width:25%" class="form-group">
+        <label asp-for="@Model.Place.Rating" class="col-sm-2 control-label"></label>
+        <div class="col-sm-10">
+            <select asp-for="@Model.Place.Rating" asp-items="Html.GetEnumSelectList<Rating>()" class="form-control"></select>
+            <span asp-validation-for="@Model.Place.Rating" class="text-danger"></span>
+        </div>
     </div>
-</div>
 
+    <div style="width:25%" class="form-group">
+        <label asp-for="@Model.Place.Address.Street" class="col-sm-2 control-label"></label>
+        <div class="col-sm-10">
+            <input asp-for="@Model.Place.Address.Street" type="text" class="form-control">
+            <span asp-validation-for="@Model.Place.Address.Street" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div style="width:25%" class="form-group">
+        <label asp-for="@Model.Place.Address.City" class="col-sm-2 control-label"></label>
+        <div class="col-sm-10">
+            <input asp-for="@Model.Place.Address.City" type="text" class="form-control">
+            <span asp-validation-for="@Model.Place.Address.City" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div style="width:25%" class="form-group">
+        <label asp-for="@Model.Place.Address.Country" class="col-sm-2 control-label"></label>
+        <div class="col-sm-10">
+            <input asp-for="@Model.Place.Address.Country" type="text" class="form-control">
+            <span asp-validation-for="@Model.Place.Address.Country" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div style="width:25%" class="form-group">
+        <label asp-for="@Model.Place.Address.Zipcode" class="col-sm-2 control-label"></label>
+        <div class="col-sm-10">
+            <input asp-for="@Model.Place.Address.Zipcode" type="text" class="form-control">
+            <span asp-validation-for="@Model.Place.Address.Zipcode" class="text-danger"></span>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="border-light">
+                Add Place
+            </button>
+        </div>
+    </div>
 </form>
-
-
-
-    
-    
-    
-

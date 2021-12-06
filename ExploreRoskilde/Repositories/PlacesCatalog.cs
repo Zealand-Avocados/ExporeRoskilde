@@ -8,9 +8,9 @@ namespace ExploreRoskilde.Repositories
 {
     public class PlacesCatalog : IPlacesCatalog
     {
-        public Dictionary<int, Place> AllPlaces() => Database.Database.ReadJson(Database.Database.PlacesFilePath);
+        public Dictionary<string, Place> AllPlaces() => Database.Database.ReadJson(Database.Database.PlacesFilePath);
 
-        public Place GetPlaceById(int id)
+        public Place GetPlaceById(string id)
         {
             return AllPlaces()[id];
         }
@@ -18,7 +18,7 @@ namespace ExploreRoskilde.Repositories
 
         public void AddPlace(Place place)
         {
-            Dictionary<int, Place> places = AllPlaces();
+            Dictionary<string, Place> places = AllPlaces();
             places.Add(place.Id, place);
             Database.Database.WriteToJson(Database.Database.PlacesFilePath, places);
         }

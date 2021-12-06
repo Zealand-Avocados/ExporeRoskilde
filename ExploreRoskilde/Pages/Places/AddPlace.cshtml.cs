@@ -7,26 +7,35 @@ namespace ExploreRoskilde.Pages.Places
 {
     public class AddPlace : PageModel
     {
-        public Place Place { get; set; }
+        [BindProperty] public Place Place { get; set; }
 
         private IPlacesCatalog placesCatalog;
+
         public AddPlace(IPlacesCatalog catalog)
         {
             placesCatalog = catalog;
         }
+
         
-        public void OnGet()
+        public IActionResult OnGet()
         {
-            
+            return Page();
         }
 
         public IActionResult OnPost()
         {
-            placesCatalog.AddPlace(
-                new Place(2, "asd", "asdsa", Rating.Five, new Address("asd", "asd", "asd", "asd "), Category.Art)
-            );
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
 
+            Place p = Place;
+            placesCatalog.AddPlace(p);
+                        
             return Page();
         }
+        
+
+       
     }
 }

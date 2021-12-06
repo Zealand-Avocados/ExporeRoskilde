@@ -6,9 +6,9 @@ namespace ExploreRoskilde.Interfaces
     public interface IPlacesCatalog
     {
 
-        public Dictionary<int, Place> AllPlaces();
+        public Dictionary<string, Place> AllPlaces();
 
-        public Place GetPlaceById(int id);
+        public Place GetPlaceById(string id);
 
         public void AddPlace(Place place);
 
