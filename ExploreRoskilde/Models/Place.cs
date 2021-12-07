@@ -24,6 +24,8 @@ namespace ExploreRoskilde.Models
             Category = category;
         }
 
+
+
         [Required] [Range(1,500)]
         public string Id { get; }
         [Required]
