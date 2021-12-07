@@ -21,13 +21,13 @@ namespace ExploreRoskilde.Models
         {
         }
 
-        [Required]
+        [Required(ErrorMessage = "Street name is required")]
         public string Street { get; set; }
-        [Required]
+        [Required(ErrorMessage = "City name is required")]
         public string City { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Zipcode is required")]
         public string Zipcode { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Country is required")]
         public string Country { get; set; }
 
 

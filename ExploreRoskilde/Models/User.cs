@@ -3,17 +3,23 @@
 namespace ExploreRoskilde.Models
 {
     public class User
-    { 
-            [Required] [MinLength(1)] 
+    {
+        [Required(ErrorMessage = "Username is required")]
+        [MinLength(1)] 
         public int UserId { get; set; }
 
             [Required] [MinLength(4)]
         public string Name { get; set; }
 
-            [Required]
-            public string Email { get; set; }
+        [Required(ErrorMessage = "Email is required")]
+        [DataType(DataType.EmailAddress)]
+        [EmailAddress(ErrorMessage = "Email is incorrect, please try again")]
+        public string Email { get; set; }
 
-            [Required] [MinLength(8)] 
+        [Required(ErrorMessage = "Password is required")]
+        [MinLength(8)]
+        [DataType(DataType.Password)]
+        
         public string Password { get; set; }
         public bool IsAdmin { get; set; }
     }
