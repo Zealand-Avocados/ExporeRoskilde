@@ -21,8 +21,8 @@
             <p class="card-text">@place.Description</p>
             <p class="card-text">@place.Address</p>
             <a class="btn btn-primary" asp-page="Places/DetailsPage" asp-route-id="@place.Id">More info</a>
-            <a href="#" class="btn btn-info">Update</a>
-            <a href="#" class="btn btn-danger">Delete</a>
+            <a class="btn btn-info" asp-page="Places/UpdatePlace" asp-route-id="@place.Id">Update</a>
+            <a class="btn btn-danger" asp-page="Places/RemovePlace" asp-route-id="@place.Id">Delete</a>
         </div>
     </div>
 

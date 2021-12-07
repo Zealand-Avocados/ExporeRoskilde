@@ -1,19 +1,8 @@
-@page
+@page "{id}"
 @model ExploreRoskilde.Pages.Places.RemovePlace
 
 @{
-    Layout = null;
+   ViewData["Title"] = Model.Place.Title;
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-<div>
-    
-</div>
-</body>
-</html>
+<h1>Remove page</h1>
