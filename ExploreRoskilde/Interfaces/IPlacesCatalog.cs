@@ -16,6 +16,8 @@ namespace ExploreRoskilde.Interfaces
 
         public Dictionary<string, Place> SearchByCategory(Category category);
 
+        public Dictionary<string, Place> Searching(string searching, int category);
+
 
 
     }

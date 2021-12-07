@@ -24,9 +24,8 @@ namespace ExploreRoskilde.Pages
         public string Search { get; set; }
 
         [BindProperty(SupportsGet = true)]
-        public string Category { get; set; }
+        public int Category { get; set; }
 
-        public string Res { get; set; }
 
         private IPlacesCatalog catalog_places;
         private IUsersCatalog catalog_users;
@@ -45,7 +44,8 @@ namespace ExploreRoskilde.Pages
 
             if (!string.IsNullOrEmpty(Search))
             {
-                AllPlaces = catalog_places.SearchByTitle(Search);
+                //AllPlaces = catalog_places.SearchByTitle(Search);
+                AllPlaces = catalog_places.Searching(Search, Category);
             }
 
         }

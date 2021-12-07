@@ -2,6 +2,6 @@ namespace ExploreRoskilde.Models
 {
     public enum Category
     {
-        CoffeeBar, Museum, Restaurant, Brunch, Art, 
+        CoffeeBar = 1, Museum, Restaurant, Brunch, Art, 
     }
 } 

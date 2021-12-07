@@ -17,10 +17,20 @@
             <button class="btn btn-primary" type="submit">Search</button>
         </div>
     </div>
+    <br />
+
+
+    <label asp-for="Category" class="col-sm-3 control-label">
+        <div class="col-sm-10">
+
+            <select asp-items="Html.GetEnumSelectList<Category>()" asp-for="Category" form-control>
+                <option value="" selected="selected">Choose a category</option>
+            </select>
+
+        </div>
+
+    </label>
 </form>
-
-<h1>@Model.Res</h1>
-
 
 @foreach (Place place in Model.AllPlaces.Values)
 {
