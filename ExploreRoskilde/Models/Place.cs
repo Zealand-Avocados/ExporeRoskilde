@@ -1,45 +1,44 @@
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace ExploreRoskilde.Models
 {
     public enum Rating
     {
-        One, Two, Three, Four, Five,
+        One,
+        Two,
+        Three,
+        Four,
+        Five,
     }
-    
+
     public class Place
     {
-        public Place(
-            string id,  string title,  string description, Rating rating, Address address, Category category
-        )
+
+        public Place()
         {
-            Id = id;
-            Title = title;
-            Description = description;
-            Rating = rating;
-            Address = address;
-            Category = category;
+            Id = Guid.NewGuid().ToString("N");
         }
 
-
-
-        [Required] [Range(1,500)]
-        public string Id { get; }
         [Required]
-
-        public string Title { get; }
-        [Required][Range(1, 250)]
-
-        public string Description { get; }
+        [Range(1, 500)]
+        public string Id { get; set; }
         [Required]
-
-        public Address Address { get; }
-
-        [Range(1,5)]
-        public Rating Rating { get; }
+        public string Title { get; set; }
         [Required]
-
-        public Category Category { get; }
+        [MinLength(20)][MaxLength(250)]
+        public string Description { get; set; }
+        [Required]
+        public Address Address { get; set; }
+        [Required]
         
+        public Rating Rating { get; set; }
+        [Required]
+        public Category Category { get; set; }
+
+        public override string ToString()
+        {
+            return Id + Title + Description;
+        }
     }
 }
