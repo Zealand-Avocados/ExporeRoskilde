@@ -23,3 +23,4 @@ namespace ExploreRoskilde.Repositories
             Database.Database.WriteToJson(Database.Database.PlacesFilePath, places);
         }
     }
+}
