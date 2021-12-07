@@ -4,7 +4,6 @@
 @{
     ViewData["Title"] = "Explore Roskilde";
 }
-
 <div class="text-center">
     <h1 class="display-4">Explore Roskilde</h1>
     <p>Explore Roskilde and its are with international students</p>
@@ -12,16 +11,24 @@
 </div>
 
 
+
 @foreach (Place place in Model.AllPlaces.Values)
 {
     <div class="card my-2">
-        <h5 class="card-header">@place.Category</h5>
+        <h5 class="card-header">@place.Category - ID: @place.Id</h5>
         <div class="card-body">
             <h5 class="card-title">@place.Title</h5>
             <p class="card-text">@place.Description</p>
+            <p class="card-text">@place.Address</p>
             <a href="#" class="btn btn-primary">More info</a>
             <a href="#" class="btn btn-info">Update</a>
             <a href="#" class="btn btn-danger">Delete</a>
         </div>
     </div>
+
+}
+
+@foreach (User user in Model.AllUsers.Values)
+{
+    <h3>Name: @user.Name</h3>
 }

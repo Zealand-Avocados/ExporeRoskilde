@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ExploreRoskilde.Catalogs;
 using ExploreRoskilde.Interfaces;
 using ExploreRoskilde.Repositories;
 using Microsoft.AspNetCore.Builder;
@@ -27,6 +28,7 @@ namespace ExploreRoskilde
         {
             services.AddRazorPages();
             services.AddSingleton<IPlacesCatalog, PlacesCatalog>();
+            services.AddSingleton<IUsersCatalog, UsersCatalog>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

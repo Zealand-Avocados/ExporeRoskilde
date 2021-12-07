@@ -1,0 +1,29 @@
+﻿@page
+@model ExploreRoskilde.RegisterModel
+@{
+    ViewData["Title"] = "CreatePizza";
+}
+
+<h1>Register</h1>
+<form method="post">
+
+    <div class="form-group">
+        <label asp-for="@Model.User.Emial" class="control-label">Email</label>
+        <input asp-for="@Model.User.Emial" class="form-control" />
+        <span asp-validation-for="@Model.User.Emial" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.User.Name" class="control-label">Name</label>
+        <input asp-for="@Model.User.Name" class="form-control" />
+        <span asp-validation-for="@Model.User.Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.User.Password" class="control-label">Password</label>
+        <input asp-for="@Model.User.Password" class="form-control" />
+        <span asp-validation-for="@Model.User.Password" class="text-danger"></span>
+
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+</form>
