@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ExploreRoskilde.Catalogs;
 using ExploreRoskilde.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -11,9 +12,8 @@ namespace ExploreRoskilde
 {
     public class RegisterModel : PageModel
     {
-        [BindProperty]
-        public new User User { get; set; }
-        
+        [BindProperty] public new User User { get; set; }
+
         public IActionResult OnGet()
         {
             return Page();
@@ -26,9 +26,11 @@ namespace ExploreRoskilde
                 return Page();
             }
 
-            Dictionary<int, User> usersCatalog = Database.Database._users;
+            Dictionary<string, User> usersCatalog = Database.Database._users;
 
-            usersCatalog.Add(usersCatalog.Count == 0 ? 0 : usersCatalog.Values.Last().UserId + 1, User);
+            usersCatalog.Add(User.Id, User);
+            HttpContext.Session.SetString("user", User.Id);
+
 
             return RedirectToPage("../Index");
         }

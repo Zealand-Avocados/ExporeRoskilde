@@ -8,8 +8,9 @@ namespace ExploreRoskilde.Interfaces
 {
     public interface IUsersCatalog
     {
-        public Dictionary<int, User> AllUsers();
-        public User GetUserById(int id);
-        public void AddUser(User place);
+        public Dictionary<string, User> AllUsers();
+        public User GetUserById(string id);
+        public void Register(User place);
+        public User Login(string username, string password);
     }
 }

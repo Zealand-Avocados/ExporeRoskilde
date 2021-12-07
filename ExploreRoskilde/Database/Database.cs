@@ -13,7 +13,7 @@ namespace ExploreRoskilde.Database
         
         private static Dictionary<string, Place> _places = new Dictionary<string, Place>();
 
-        public static Dictionary<int, User> _users = new Dictionary<int, User>();
+        public static Dictionary<string, User> _users = new Dictionary<string, User>();
         public static void WriteToJson(string filePath, Dictionary<string, Place> places)
         {
             //  string output = System.Text.Json.JsonSerializer.Serialize(places);
@@ -23,7 +23,7 @@ namespace ExploreRoskilde.Database
             _places = places;
         }
 
-        public static void WriteToJsonUsers(string filePath, Dictionary<int, User> users)
+        public static void WriteToJsonUsers(string filePath, Dictionary<string, User> users)
         {
             //  string output = System.Text.Json.JsonSerializer.Serialize(places);
             // var output = JsonConvert.SerializeObject(places);
@@ -40,7 +40,7 @@ namespace ExploreRoskilde.Database
             return _places;
         }
 
-        public static Dictionary<int, User> ReadJsonUsers(string filePath)
+        public static Dictionary<string, User> ReadJsonUsers(string filePath)
         {
             // var jsonString = File.ReadAllText(filePath);
             // return JsonConvert.DeserializeObject<Dictionary<int, Place>>(jsonString);

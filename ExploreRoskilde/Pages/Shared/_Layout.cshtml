@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+<!DOCTYPE html>
+
+@{
+    bool isLoggedIn = String.IsNullOrEmpty(Context.Session.GetString("user"));
+
+}
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
@@ -27,12 +33,26 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-page="/Places/AddPlace">AddPlace</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-page="/Authentication/Register">Register</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-page="/Authentication/Login">Login</a>
-                    </li>
+                    @{
+                        if (isLoggedIn)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Authentication/Register">Register</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Authentication/Login">Login</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Authentication/Logout">LogOut</a>
+                            </li>
+                        }
+
+                    }
+
+
                 </ul>
             </div>
         </div>

@@ -7,9 +7,14 @@ namespace ExploreRoskilde.Models
 {
     public class User
     { 
-        public int UserId { get; set; }
+        
+        public User()
+        {
+            Id = Guid.NewGuid().ToString("N");
+        }
+        public string Id { get; set; }
         public string Name { get; set; }
-        public string Emial { get; set; }
+        public string Email { get; set; }
         public string Password { get; set; }
         public bool IsAdmin { get; set; }
     }
