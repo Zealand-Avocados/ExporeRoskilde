@@ -14,7 +14,6 @@ namespace ExploreRoskilde.Models
 
     public class Place
     {
-
         public Place()
         {
             Id = Guid.NewGuid().ToString("N");
