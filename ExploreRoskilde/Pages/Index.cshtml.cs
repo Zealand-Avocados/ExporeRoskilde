@@ -13,20 +13,41 @@ namespace ExploreRoskilde.Pages
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
+
+        
         
         public Dictionary<string, Place> AllPlaces {get; set; }
 
         public Dictionary<int, User> AllUsers { get; set; }
 
-        public IndexModel(ILogger<IndexModel> logger, IPlacesCatalog catalog, IUsersCatalog userscatalog)
+        [BindProperty(SupportsGet = true)]
+        public string Search { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public string Category { get; set; }
+
+        public string Res { get; set; }
+
+        private IPlacesCatalog catalog_places;
+        private IUsersCatalog catalog_users;
+
+        public IndexModel(ILogger<IndexModel> logger, IPlacesCatalog placescatalog, IUsersCatalog userscatalog)
         {
             _logger = logger;
-            AllPlaces = catalog.AllPlaces();
-            AllUsers = userscatalog.AllUsers();
+            catalog_places = placescatalog;
+            catalog_users = userscatalog;
         }
 
         public void OnGet()
         {
+            AllPlaces = catalog_places.AllPlaces();
+            AllUsers = catalog_users.AllUsers();
+
+            if (!string.IsNullOrEmpty(Search))
+            {
+                AllPlaces = catalog_places.SearchByTitle(Search);
+            }
+
         }
     }
 }

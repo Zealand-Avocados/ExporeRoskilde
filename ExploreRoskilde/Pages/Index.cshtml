@@ -10,6 +10,16 @@
 
 </div>
 
+<form method="get">
+    <div class="input-group">
+        <input class="form-control" asp-for="Search">
+        <div class="input-group-append">
+            <button class="btn btn-primary" type="submit">Search</button>
+        </div>
+    </div>
+</form>
+
+<h1>@Model.Res</h1>
 
 
 @foreach (Place place in Model.AllPlaces.Values)

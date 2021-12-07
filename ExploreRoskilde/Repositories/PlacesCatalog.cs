@@ -22,10 +22,36 @@ namespace ExploreRoskilde.Repositories
             places.Add(place.Id, place);
             Database.Database.WriteToJson(Database.Database.PlacesFilePath, places);
         }
-        
-        
-        
-        
-        
+
+        public Dictionary<string, Place> SearchByTitle(string title)
+        {
+            Dictionary<string, Place> places = AllPlaces();
+            Dictionary<string, Place> filtered_places = new Dictionary<string, Place>();
+
+            foreach (var place in places)
+            {
+                if (place.Value.Title.StartsWith(title))
+                {
+                    filtered_places.Add(place.Key, place.Value);
+                }
+            }
+            return filtered_places;
+        }
+
+        public Dictionary<string, Place> SearchByCategory(Category category)
+        {
+            Dictionary<string, Place> places = AllPlaces();
+            Dictionary<string, Place> filtered_places = new Dictionary<string, Place>();
+
+            foreach (var place in places)
+            {
+                if (place.Value.Category == category)
+                {
+                    filtered_places.Add(place.Key, place.Value);
+                }
+            }
+            return filtered_places;
+        }
+
     }
 }
