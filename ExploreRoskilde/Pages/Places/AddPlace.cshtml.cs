@@ -1,15 +1,39 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ExploreRoskilde.Models;
+using Microsoft.AspNetCore.Mvc;
+using ExploreRoskilde.Interfaces;
 
 namespace ExploreRoskilde.Pages.Places
 {
     public class AddPlace : PageModel
     {
-        public Place Place { get; set; } 
+        [BindProperty] public Place Place { get; set; }
 
-        public void OnGet()
+        private IPlacesCatalog placesCatalog;
+
+        public AddPlace(IPlacesCatalog catalog)
         {
-            
+            placesCatalog = catalog;
         }
+
+
+        public IActionResult OnGet()
+        {
+            return Page();
+        }
+
+        public IActionResult OnPost()
+        {
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
+
+            Place p = Place;
+            placesCatalog.AddPlace(p);
+
+            return Page();
+        }
+
     }
 }
