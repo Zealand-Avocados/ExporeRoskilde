@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace ExploreRoskilde.Models
 {
@@ -13,17 +14,20 @@ namespace ExploreRoskilde.Models
 
     public class Place
     {
-
         public Place()
         {
             Id = Guid.NewGuid().ToString("N");
         }
-        public string Id { get; set; }
-        public string Title { get; set; }
+
+        [Required, Range(1, 500)] public string Id { get; set; }
+        [Required] public string Title { get; set; }
+
+        [Required, MinLength(10), MaxLength(250)]
         public string Description { get; set; }
-        public Address Address { get; set; }
-        public Rating Rating { get; set; }
-        public Category Category { get; set; }
+
+        [Required] public Address Address { get; set; }
+        [Required] public Rating Rating { get; set; }
+        [Required] public Category Category { get; set; }
 
         public override string ToString()
         {
