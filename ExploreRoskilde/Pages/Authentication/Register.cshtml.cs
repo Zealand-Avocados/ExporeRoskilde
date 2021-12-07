@@ -12,7 +12,7 @@ namespace ExploreRoskilde
     public class RegisterModel : PageModel
     {
         [BindProperty]
-        public User User { get; set; }
+        public new User User { get; set; }
         
         public IActionResult OnGet()
         {
