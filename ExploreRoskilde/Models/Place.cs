@@ -7,9 +7,6 @@ namespace ExploreRoskilde.Models
         One, Two, Three, Four, Five,
     }
     
-    
-    
-    
     public class Place
     {
         public Place(
