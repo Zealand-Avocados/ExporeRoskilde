@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using ExploreRoskilde.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace ExploreRoskilde.Catalogs
 {
@@ -39,6 +41,7 @@ namespace ExploreRoskilde.Catalogs
                 loggedIn = verificationResult == PasswordVerificationResult.Success ? value : null;
                 return loggedIn;
             }
+
             
             return loggedIn;
         }

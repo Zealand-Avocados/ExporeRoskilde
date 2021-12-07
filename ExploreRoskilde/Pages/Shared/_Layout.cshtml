@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 @{
-    bool isLoggedIn = String.IsNullOrEmpty(Context.Session.GetString("user"));
+    bool isLoggedIn = !String.IsNullOrEmpty(Context.Session.GetString("user"));
 
 }
 <html lang="en">
@@ -34,7 +34,7 @@
                         <a class="nav-link text-dark" asp-area="" asp-page="/Places/AddPlace">AddPlace</a>
                     </li>
                     @{
-                        if (isLoggedIn)
+                        if (!isLoggedIn)
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-page="/Authentication/Register">Register</a>
