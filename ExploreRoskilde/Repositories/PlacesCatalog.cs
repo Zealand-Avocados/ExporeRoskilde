@@ -22,5 +22,10 @@ namespace ExploreRoskilde.Repositories
             places.Add(place.Id, place);
             Database.Database.WriteToJson(Database.Database.PlacesFilePath, places);
         }
+        
+        
+        
+        
+        
     }
 }

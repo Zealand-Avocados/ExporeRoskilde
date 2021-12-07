@@ -1,6 +1,8 @@
-﻿using ExploreRoskilde.Models;
+﻿using System;
+using ExploreRoskilde.Models;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 
 namespace ExploreRoskilde.Database
@@ -8,7 +10,7 @@ namespace ExploreRoskilde.Database
     public static class Database
     {
         public static string PlacesFilePath = "Database/Places.json";
-
+        
         private static Dictionary<string, Place> _places = new Dictionary<string, Place>();
 
         public static Dictionary<int, User> _users = new Dictionary<int, User>();
@@ -34,7 +36,7 @@ namespace ExploreRoskilde.Database
         {
             // var jsonString = File.ReadAllText(filePath);
             // return JsonConvert.DeserializeObject<Dictionary<int, Place>>(jsonString);
-
+            
             return _places;
         }
 
