@@ -11,7 +11,6 @@ namespace ExploreRoskilde.Models
         Five,
     }
 
-
     public class Place
     {
 
