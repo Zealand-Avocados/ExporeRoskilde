@@ -29,7 +29,9 @@ namespace ExploreRoskilde.Pages.Places
         
         public IActionResult OnPost(Place place)
         {
+            
              placesCatalog.DeletePlace(place);
+             if (Place == null) return RedirectToPage("/NotFound");
              return RedirectToPage("AddPlace");
         }
     }
