@@ -32,7 +32,7 @@ namespace ExploreRoskilde.Pages.Places
             Place p = Place;
             placesCatalog.AddPlace(p);
                         
-            return Page();
+            return RedirectToPage("/Index");
         }
         
 

@@ -34,7 +34,7 @@ namespace ExploreRoskilde.Pages.Places
                 return Page();
             }
             catalog.UpdatePlace(Place);
-            return RedirectToPage("AddPlace");
+            return RedirectToPage("/Index");
         }
     }
 }

@@ -31,8 +31,8 @@ namespace ExploreRoskilde.Pages.Places
         {
             
              placesCatalog.DeletePlace(place);
-             if (Place == null) return RedirectToPage("/NotFound");
-             return RedirectToPage("AddPlace");
+             if (place == null) return RedirectToPage("NotFound");
+             return RedirectToPage("/Index");
         }
     }
 }
