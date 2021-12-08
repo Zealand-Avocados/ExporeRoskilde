@@ -40,8 +40,13 @@ namespace ExploreRoskilde
             Dictionary<string, User> usersCatalog = Database.Database._users;
 
             usersCatalog.Add(User.Id, User);
+
             HttpContext.Session.SetString("user", User.Username);
 
+            if (User.IsAdmin)
+                HttpContext.Session.SetInt32("right", 1);
+            else
+                HttpContext.Session.SetInt32("right", 0);
 
             return RedirectToPage("../Index");
         }

@@ -22,7 +22,6 @@ namespace ExploreRoskilde.Catalogs
             return AllUsers()[id];
         }
 
-
         public void Register(User user)
         {
             Dictionary<string, User> users = AllUsers();
