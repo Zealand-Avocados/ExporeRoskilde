@@ -13,6 +13,7 @@ namespace ExploreRoskilde
     public class LoginModel : PageModel
     {
         IUsersCatalog userService;
+        [BindProperty]
         public string Username { get; set; }
         [BindProperty] public string Email { get; set; }
         [BindProperty] public string Password { get; set; }

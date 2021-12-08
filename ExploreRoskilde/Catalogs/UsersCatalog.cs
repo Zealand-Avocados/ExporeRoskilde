@@ -22,13 +22,13 @@ namespace ExploreRoskilde.Catalogs
             return AllUsers()[id];
         }
 
-
         public void Register(User user)
         {
             Dictionary<string, User> users = AllUsers();
-            user.Password = PasswordHash(user.Email, user.Password);
+            PasswordHasher<string> pw = new PasswordHasher<string>();
+            string passwordHashed = pw.HashPassword(user.Email, user.Password);
+            user.Password = passwordHashed;
             users.Add(user.Id, user);
-            Database.Database.WriteToJsonUsers(Database.Database.PlacesFilePath, users);
         }
         
         public User Login(string email , string password)
@@ -37,30 +37,19 @@ namespace ExploreRoskilde.Catalogs
             foreach (var (_, value) in AllUsers())
             {
                 if (value.Email != email) continue;
-                string jsonPassword = value.Password;
+                string jsonPassword = value.Password; 
                 PasswordHasher<string> pw = new PasswordHasher<string>();
-                //var verificationResult = pw.VerifyHashedPassword(email, jsonPassword, password);
-                //loggedIn = verificationResult == PasswordVerificationResult.Success ? value : null
-                if (jsonPassword != password)
-                    return null;
+                var verificationResult = pw.VerifyHashedPassword(email, jsonPassword, password);
+                loggedIn = verificationResult == PasswordVerificationResult.Success ? value : null;
 
-                return value;
+                return loggedIn;
             }
-
-            
             return loggedIn;
         }
 
         public void Logout()
         {
             throw new NotImplementedException();
-        }
-
-        private string PasswordHash(string userName, string password)
-        {
-            PasswordHasher<string> pw = new PasswordHasher<string>();
-            string passwordHashed = pw.HashPassword(userName, password);
-            return passwordHashed;
         }
     }
 }
