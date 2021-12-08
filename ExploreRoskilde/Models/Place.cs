@@ -21,6 +21,7 @@ namespace ExploreRoskilde.Models
         public string Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
+        public string ImageUrl { get; set; }
         public Address Address { get; set; }
         public Rating Rating { get; set; }
         public Category Category { get; set; }
