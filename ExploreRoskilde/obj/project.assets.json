@@ -48,19 +48,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/patrik/.nuget/packages/": {}
+    "/Users/marholoubek/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/patrik/Desktop/ExporeRoskilde/ExploreRoskilde/ExploreRoskilde.csproj",
+      "projectUniqueName": "/Users/marholoubek/Documents/Coding/C#/ExploreRoskildeSolution/ExploreRoskilde/ExploreRoskilde.csproj",
       "projectName": "ExploreRoskilde",
-      "projectPath": "/Users/patrik/Desktop/ExporeRoskilde/ExploreRoskilde/ExploreRoskilde.csproj",
-      "packagesPath": "/Users/patrik/.nuget/packages/",
-      "outputPath": "/Users/patrik/Desktop/ExporeRoskilde/ExploreRoskilde/obj/",
+      "projectPath": "/Users/marholoubek/Documents/Coding/C#/ExploreRoskildeSolution/ExploreRoskilde/ExploreRoskilde.csproj",
+      "packagesPath": "/Users/marholoubek/.nuget/packages/",
+      "outputPath": "/Users/marholoubek/Documents/Coding/C#/ExploreRoskildeSolution/ExploreRoskilde/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/patrik/.nuget/NuGet/NuGet.Config"
+        "/Users/marholoubek/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -107,7 +107,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.402/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.400/RuntimeIdentifierGraph.json"
       }
     }
   }

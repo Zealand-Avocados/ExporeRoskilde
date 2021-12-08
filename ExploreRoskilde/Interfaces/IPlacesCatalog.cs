@@ -16,6 +16,7 @@ namespace ExploreRoskilde.Interfaces
         
         public void DeletePlace(Place place);
 
+        public Dictionary<string, Place> Searching(string searching, int category);
 
 
 

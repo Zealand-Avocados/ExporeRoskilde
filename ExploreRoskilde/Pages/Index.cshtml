@@ -10,7 +10,21 @@
 
 </div>
 
+<form method="get">
+    <div class="input-group">
+        <input class="form-control" asp-for="Search">
+        <div class="input-group-append">
+            <button class="btn btn-primary" type="submit">Search</button>
+        </div>
+    </div>
+    <br />
 
+    <label asp-for="Category" class="col-sm-3 control-label">
+            <select asp-items="Html.GetEnumSelectList<Category>()" asp-for="Category" form-control>
+                <option value="" selected="selected">All categories</option>
+            </select>
+    </label>
+</form>
 
 <div class="row">
     
