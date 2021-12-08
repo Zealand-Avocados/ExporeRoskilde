@@ -58,7 +58,7 @@ namespace ExploreRoskilde.Repositories
             Dictionary<string, Place> places = AllPlaces();
             Dictionary<string, Place> filtered_places = new Dictionary<string, Place>();
 
-            if ((string.IsNullOrEmpty(searching) == false) && (category < 1))
+            if ((string.IsNullOrEmpty(searching) == false) && (category < 1)) //case that there is value in search bar and not in category
             {
                 foreach (var place in places)
                 {
@@ -70,7 +70,7 @@ namespace ExploreRoskilde.Repositories
 
                 return filtered_places;
             }
-            else //if(string.IsNullOrEmpty(searching) && (!string.IsNullOrEmpty(category.ToString())))
+            else if(string.IsNullOrEmpty(searching) && (category > 0)) //case that there is value in category and not in search bar
             {
 
                 foreach (var place in places)
@@ -80,6 +80,14 @@ namespace ExploreRoskilde.Repositories
                 }
                     
                 return filtered_places;
+            }
+            else if((string.IsNullOrEmpty(searching) == false) && (category > 0)) //case that there is value either in category and search bar
+            {
+                return places;
+            }
+            else //both null
+            {
+                return places;
             }
         }
 
