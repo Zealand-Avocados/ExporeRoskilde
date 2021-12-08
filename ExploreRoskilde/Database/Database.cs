@@ -3,6 +3,7 @@ using ExploreRoskilde.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
+using Newtonsoft.Json;
 
 
 namespace ExploreRoskilde.Database
@@ -10,42 +11,31 @@ namespace ExploreRoskilde.Database
     public static class Database
     {
         public static string PlacesFilePath = "Database/Places.json";
+        public static string UsersFilePath = "Database/Places.json";
         
-        private static Dictionary<string, Place> _places = new Dictionary<string, Place>();
-
-        public static Dictionary<string, User> _users = new Dictionary<string, User>();
         public static void WriteToJson(string filePath, Dictionary<string, Place> places)
         {
-            //  string output = System.Text.Json.JsonSerializer.Serialize(places);
-            // var output = JsonConvert.SerializeObject(places);
-            // string output = "{:::::: }";
-            // File.WriteAllText(filePath, output);
-            _places = places;
+            var output = JsonConvert.SerializeObject(places);
+            File.WriteAllText(filePath, output);
         }
 
         public static void WriteToJsonUsers(string filePath, Dictionary<string, User> users)
         {
-            //  string output = System.Text.Json.JsonSerializer.Serialize(places);
-            // var output = JsonConvert.SerializeObject(places);
-            // string output = "{:::::: }";
-            // File.WriteAllText(filePath, output);
-            _users = users;
+            var output = JsonConvert.SerializeObject(users);
+            File.WriteAllText(filePath, output);
         }
 
         public static Dictionary<string, Place> ReadJson(string filePath)
         {
-            // var jsonString = File.ReadAllText(filePath);
-            // return JsonConvert.DeserializeObject<Dictionary<int, Place>>(jsonString);
-            
-            return _places;
+            var jsonString = File.ReadAllText(filePath);
+            return JsonConvert.DeserializeObject<Dictionary<string, Place>>(jsonString);
         }
 
         public static Dictionary<string, User> ReadJsonUsers(string filePath)
         {
-            // var jsonString = File.ReadAllText(filePath);
-            // return JsonConvert.DeserializeObject<Dictionary<int, Place>>(jsonString);
+            var jsonString = File.ReadAllText(filePath);
+            return JsonConvert.DeserializeObject<Dictionary<string, User>>(jsonString);
 
-            return _users;
         }
     }
 }
