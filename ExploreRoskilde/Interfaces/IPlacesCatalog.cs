@@ -12,10 +12,6 @@ namespace ExploreRoskilde.Interfaces
 
         public void AddPlace(Place place);
 
-        public Dictionary<string, Place> SearchByTitle(string title);
-
-        public Dictionary<string, Place> SearchByCategory(Category category);
-
         public Dictionary<string, Place> Searching(string searching, int category);
 
 

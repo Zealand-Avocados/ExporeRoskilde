@@ -23,42 +23,13 @@ namespace ExploreRoskilde.Repositories
             Database.Database.WriteToJson(Database.Database.PlacesFilePath, places);
         }
 
-        public Dictionary<string, Place> SearchByTitle(string title)
-        {
-            Dictionary<string, Place> places = AllPlaces();
-            Dictionary<string, Place> filtered_places = new Dictionary<string, Place>();
-
-            foreach (var place in places)
-            {
-                if (place.Value.Title.StartsWith(title))
-                {
-                    filtered_places.Add(place.Key, place.Value);
-                }
-            }
-            return filtered_places;
-        }
-
-        public Dictionary<string, Place> SearchByCategory(Category category)
-        {
-            Dictionary<string, Place> places = AllPlaces();
-            Dictionary<string, Place> filtered_places = new Dictionary<string, Place>();
-
-            foreach (var place in places)
-            {
-                if (place.Value.Category == category)
-                {
-                    filtered_places.Add(place.Key, place.Value);
-                }
-            }
-            return filtered_places;
-        }
-
+       
         public Dictionary<string, Place> Searching(string searching, int category)
         {
             Dictionary<string, Place> places = AllPlaces();
             Dictionary<string, Place> filtered_places = new Dictionary<string, Place>();
 
-            if ((string.IsNullOrEmpty(searching) == false) && (category < 1)) //case that there is value in search bar and not in category
+            if ((string.IsNullOrEmpty(searching) == false) && (category < 1)) 
             {
                 foreach (var place in places)
                 {
@@ -70,7 +41,8 @@ namespace ExploreRoskilde.Repositories
 
                 return filtered_places;
             }
-            else if(string.IsNullOrEmpty(searching) && (category > 0)) //case that there is value in category and not in search bar
+            
+            else if(string.IsNullOrEmpty(searching) && (category > 0)) 
             {
 
                 foreach (var place in places)
@@ -81,11 +53,21 @@ namespace ExploreRoskilde.Repositories
                     
                 return filtered_places;
             }
-            else if((string.IsNullOrEmpty(searching) == false) && (category > 0)) //case that there is value either in category and search bar
-            {
-                return places;
+
+            else if((string.IsNullOrEmpty(searching) == false) && (category > 0))
+            {   
+                
+                foreach (var place in places)
+                {
+
+                    if(place.Value.Title.StartsWith(searching) && (int)place.Value.Category == category)
+                        filtered_places.Add(place.Key, place.Value);
+                }
+
+                return filtered_places;
             }
-            else //both null
+
+            else
             {
                 return places;
             }

@@ -42,11 +42,8 @@ namespace ExploreRoskilde.Pages
             AllPlaces = catalog_places.AllPlaces();
             AllUsers = catalog_users.AllUsers();
 
-            if (!string.IsNullOrEmpty(Search))
-            {
-                //AllPlaces = catalog_places.SearchByTitle(Search);
-                AllPlaces = catalog_places.Searching(Search, Category);
-            }
+            AllPlaces = catalog_places.Searching(Search, Category);
+            
 
         }
     }
