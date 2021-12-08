@@ -16,7 +16,7 @@ namespace ExploreRoskilde.Pages
 
         public Dictionary<string, Place> AllPlaces { get; set; }
 
-        public Dictionary<int, User> AllUsers { get; set; }
+        public Dictionary<string, User> AllUsers { get; set; }
 
         public IndexModel(ILogger<IndexModel> logger, IPlacesCatalog catalog, IUsersCatalog userscatalog)
         {

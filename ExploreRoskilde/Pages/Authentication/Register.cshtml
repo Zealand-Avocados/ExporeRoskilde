@@ -1,7 +1,13 @@
 ﻿@page
 @model ExploreRoskilde.RegisterModel
+@using Microsoft.AspNetCore.Http
 @{
     ViewData["Title"] = "CreatePizza";
+
+    string erMessage = HttpContext.Session.GetString("erMessage");
+
+    if (erMessage == null)
+        erMessage = "";
 }
 
 <h1>Register</h1>
@@ -13,16 +19,21 @@
         <span asp-validation-for="@Model.User.Email" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="@Model.User.Name" class="control-label">Name</label>
-        <input asp-for="@Model.User.Name" class="form-control" />
-        <span asp-validation-for="@Model.User.Name" class="text-danger"></span>
+        <label asp-for="@Model.User.Username" class="control-label">UserName</label>
+        <input asp-for="@Model.User.Username" class="form-control" />
+        <span asp-validation-for="@Model.User.Username" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="@Model.User.Password" class="control-label">Password</label>
-        <input asp-for="@Model.User.Password" class="form-control" />
-        <span asp-validation-for="@Model.User.Password" class="text-danger"></span>
-
+        <label asp-for="@Model.Password1" class="control-label">Password1</label>
+        <input asp-for="@Model.Password1" type="password" class="form-control" />
+        <span asp-validation-for="@Model.Password1" class="text-danger"></span>
     </div>
+    <div class="form-group">
+        <label asp-for="@Model.Password2" class="control-label">Password2</label>
+        <input asp-for="@Model.Password2" type="password" class="form-control" />
+        <span asp-validation-for="@Model.Password2" class="text-danger"></span>
+    </div>
+    <span>@erMessage&nbsp</span>
     <div class="form-group">
         <input type="submit" value="Create" class="btn btn-primary" />
     </div>
