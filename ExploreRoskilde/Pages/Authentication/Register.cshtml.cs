@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using ExploreRoskilde.Catalogs;
 using ExploreRoskilde.Interfaces;
 using ExploreRoskilde.Models;
 using Microsoft.AspNetCore.Http;
@@ -45,7 +40,6 @@ namespace ExploreRoskilde
                 
             User.Password = Password1;
 
-            Dictionary<string, User> usersCatalog = Database.Database._users;
 
             _userService.Register(User);
            
