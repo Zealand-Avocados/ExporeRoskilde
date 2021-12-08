@@ -37,9 +37,12 @@ namespace ExploreRoskilde.Catalogs
                 if (value.Email != email) continue;
                 string jsonPassword = value.Password;
                 PasswordHasher<string> pw = new PasswordHasher<string>();
-                var verificationResult = pw.VerifyHashedPassword(email, jsonPassword, password);
-                loggedIn = verificationResult == PasswordVerificationResult.Success ? value : null;
-                return loggedIn;
+                //var verificationResult = pw.VerifyHashedPassword(email, jsonPassword, password);
+                //loggedIn = verificationResult == PasswordVerificationResult.Success ? value : null
+                if (jsonPassword != password)
+                    return null;
+
+                return value;
             }
 
             

@@ -4,6 +4,7 @@
 @{
     bool isLoggedIn = !String.IsNullOrEmpty(Context.Session.GetString("user"));
 
+    string userName = Context.Session.GetString("user");
 }
 <html lang="en">
 <head>
@@ -48,8 +49,10 @@
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-page="/Authentication/Logout">LogOut</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="">@userName</a>
+                            </li>
                         }
-
                     }
 
 

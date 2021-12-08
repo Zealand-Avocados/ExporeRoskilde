@@ -12,7 +12,12 @@ namespace ExploreRoskilde
 {
     public class RegisterModel : PageModel
     {
-        [BindProperty] public new User User { get; set; }
+        [BindProperty] 
+        public new User User { get; set; }
+        [BindProperty]
+        public string Password1 { get; set; }
+        [BindProperty]
+        public string Password2 { get; set; }
 
         public IActionResult OnGet()
         {
@@ -22,14 +27,20 @@ namespace ExploreRoskilde
         public IActionResult OnPost()
         {
             if (!ModelState.IsValid)
+                return Page();
+
+            if (Password1 != Password2)
             {
+                HttpContext.Session.SetString("erMessage", "passwords dont match");
                 return Page();
             }
+                
+            User.Password = Password1;
 
             Dictionary<string, User> usersCatalog = Database.Database._users;
 
             usersCatalog.Add(User.Id, User);
-            HttpContext.Session.SetString("user", User.Id);
+            HttpContext.Session.SetString("user", User.UserName);
 
 
             return RedirectToPage("../Index");
