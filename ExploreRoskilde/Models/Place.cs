@@ -19,15 +19,15 @@ namespace ExploreRoskilde.Models
             Id = Guid.NewGuid().ToString("N");
         }
 
-        [Required(ErrorMessage = "ID is required")]
-        [Range(1, 500)]
         public string Id { get; set; }
         [Required(ErrorMessage = "Title is required")]
         public string Title { get; set; }
         [Required(ErrorMessage = "Description is required")]
-        [MinLength(20)][MaxLength(250)]
+        [MinLength(10)][MaxLength(250)]
         public string Description { get; set; }
         
+        public string ImageUrl { get; set; }
+
         [Required(ErrorMessage = "Address is required")]
         public Address Address { get; set; }
 

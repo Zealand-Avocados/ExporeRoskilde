@@ -11,7 +11,6 @@
 </div>
 
 
-
 @foreach (Place place in Model.AllPlaces.Values)
 {
     <div class="card my-2">
@@ -25,10 +24,33 @@
             <a href="#" class="btn btn-danger">Delete</a>
         </div>
     </div>
-
 }
 
-@*@foreach (User user in Model.AllUsers.Values)
+
+<div class="row">
+    
+
+@foreach (Place place in Model.AllPlaces.Values)
 {
-    <h3>Name: @user.UserName</h3>
-}*@
+    <div class="card mb-3 col-sm-6 col-12 p-0">
+        @{
+            if (!string.IsNullOrEmpty(place.ImageUrl))
+            {
+                <img src="@place.ImageUrl" class="card-img-top" alt="place image">
+                
+            }
+
+        }
+        <div class="card-body">
+            <h5 class="card-title">@place.Title</h5>
+            <p class="card-text">@place.Description</p>
+            <p class="card-text">
+                <small class="text-muted">@place.Address</small>
+            </p>
+            <a class="btn btn-primary card-text" asp-page="Places/DetailsPage" asp-route-id="@place.Id">More info</a>
+            <a href="#" class="btn btn-info card-text">Update</a>
+            <a href="#" class="btn btn-danger card-text">Delete</a>
+        </div>
+    </div>
+}
+</div>
