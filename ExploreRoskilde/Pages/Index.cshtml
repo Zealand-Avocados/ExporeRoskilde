@@ -11,21 +11,6 @@
 </div>
 
 
-@foreach (Place place in Model.AllPlaces.Values)
-{
-    <div class="card my-2">
-        <h5 class="card-header">@place.Category - ID: @place.Id</h5>
-        <div class="card-body">
-            <h5 class="card-title">@place.Title</h5>
-            <p class="card-text">@place.Description</p>
-            <p class="card-text">@place.Address</p>
-            <a class="btn btn-primary" asp-page="Places/DetailsPage" asp-route-id="@place.Id">More info</a>
-            <a href="#" class="btn btn-info">Update</a>
-            <a href="#" class="btn btn-danger">Delete</a>
-        </div>
-    </div>
-}
-
 
 <div class="row">
     
@@ -47,9 +32,9 @@
             <p class="card-text">
                 <small class="text-muted">@place.Address</small>
             </p>
-            <a class="btn btn-primary card-text" asp-page="Places/DetailsPage" asp-route-id="@place.Id">More info</a>
-            <a href="#" class="btn btn-info card-text">Update</a>
-            <a href="#" class="btn btn-danger card-text">Delete</a>
+            <a class="btn btn-primary" asp-page="Places/DetailsPage" asp-route-id="@place.Id">More info</a>
+                        <a class="btn btn-info" asp-page="Places/UpdatePlace" asp-route-id="@place.Id">Update</a>
+                        <a class="btn btn-danger" asp-page="Places/RemovePlace" asp-route-id="@place.Id">Delete</a>
         </div>
     </div>
 }

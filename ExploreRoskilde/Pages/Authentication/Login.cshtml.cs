@@ -14,19 +14,19 @@ namespace ExploreRoskilde
     {
         IUsersCatalog userService;
         public string Username { get; set; }
-        [BindProperty]
-        public string Email { get; set; }
-        [BindProperty]
-        public string Password { get; set; }
+        [BindProperty] public string Email { get; set; }
+        [BindProperty] public string Password { get; set; }
 
         public LoginModel(IUsersCatalog service)
         {
             userService = service;
         }
+
         public IActionResult OnGet()
         {
             return Page();
         }
+
         public IActionResult OnPost()
         {
             return CheckLogin();
@@ -38,26 +38,19 @@ namespace ExploreRoskilde
             User validUser = userService.Login(Email, Password);
             if (validUser != null)
             {
-                if (validUser.IsAdmin == true)
+                if (validUser.IsAdmin)
                 {
-                    // an admin
                     HttpContext.Session.SetString("admin", validUser.Username);
                     HttpContext.Session.SetString("user", validUser.Username);
                     return Redirect("~/Item/GetAllItems");
                 }
-                else
-                {
-                    HttpContext.Session.SetString("normal", validUser.Username);
-                    HttpContext.Session.SetString("user", validUser.Username);
-                    return Redirect("/Index");
-                }
+
+                HttpContext.Session.SetString("normal", validUser.Username);
+                HttpContext.Session.SetString("user", validUser.Username);
+                return Redirect("/Index");
             }
-            else
-            {
-                HttpContext.Session.SetString("Unregistered", "");
-                return RedirectToPage("Login");
-            }
+
+            return RedirectToPage("Login");
         }
     }
 }
-
