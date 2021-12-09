@@ -41,12 +41,12 @@ namespace ExploreRoskilde
             {
                 if (validUser.IsAdmin)
                 {
-                    HttpContext.Session.SetString("admin", validUser.Username);
+                    HttpContext.Session.SetString("right", "admin");
                     HttpContext.Session.SetString("user", validUser.Username);
                     return Redirect("~/Item/GetAllItems");
                 }
 
-                HttpContext.Session.SetString("normal", validUser.Username);
+                HttpContext.Session.SetString("right", "user");
                 HttpContext.Session.SetString("user", validUser.Username);
                 return Redirect("/Index");
             }
