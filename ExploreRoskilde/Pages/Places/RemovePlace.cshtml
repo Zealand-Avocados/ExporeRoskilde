@@ -5,13 +5,45 @@
    ViewData["Title"] = Model.Place.Title;
 }
 
-<h1>Remove page</h1>
 
-<h1>Delete Confirmation></h1>
-<div class="alert alert-danger">
-    <h5>Are you sure you want to delete Item - @Model.Place.Title</h5>
-    <form method="post">
-        <button type="submit" class="btn btn-danger">Yes</button>
-        <a class="btn btn-primary" asp-page="/Index">No</a>
-    </form>
+<h1 align="center">Delete Confirmation</h1>
+<div class="alert alert-secondary">
+     
+    <div class="container">
+        <h5 style="color: darkred;">Are you sure you want to delete PLACE - @Model.Place.Title</h5>
+        <div class="row">
+            <div class="col-md-6">
+
+                <div class="project-info-box mt-0 alert alert-danger">
+
+                    <h5>PROJECT DETAILS</h5>
+                    <p class="mb-0">@Model.Place.Description</p>
+                </div>
+
+                <div class="project-info-box alert alert-danger">
+                    <p><b><label asp-for="@Model.Place.Category"></label>:</b> @Model.Place.Category</p>
+                    <p><b><label asp-for="@Model.Place.Rating"></label>:</b> @Model.Place.Rating</p>
+                    <p><b><label asp-for="@Model.Place.Address.Street"></label>:</b> @Model.Place.Address.Street</p>
+                    <p><b><label asp-for="@Model.Place.Address.City"></label>:</b> @Model.Place.Address.City</p>
+                    <p><b><label asp-for="@Model.Place.Address.Country"></label>:</b> @Model.Place.Address.Country</p>
+                    <p><b><label asp-for="@Model.Place.Address.Zipcode"></label>:</b> @Model.Place.Address.Zipcode</p>
+
+                </div>
+
+            </div>
+
+            <div class=" mb-3 col-sm-6 col-12 p-0">
+                <img class="card-img-top" src="@Model.Place.ImageUrl" alt="project-image">
+            </div>
+        </div>
+
+    </div>
+    
+</div>
+
+<div align="center">
+<form method="post">
+            <button type="submit" class="btn btn-danger">Yes</button>
+            <a class="btn btn-primary" asp-page="/Index">No</a>
+        </form>
 </div>
