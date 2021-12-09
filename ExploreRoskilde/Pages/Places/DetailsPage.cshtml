@@ -1,12 +1,69 @@
 @page "{id}"
+@using ExploreRoskilde.Models
+@using Microsoft.AspNetCore.Http
 @model ExploreRoskilde.Pages.Places.DetailsPage
 
 @{
     ViewData["Title"] = Model.Place.Title;
+    string userName = HttpContext.Session.GetString("user");
+    bool isLoggedIn = !String.IsNullOrEmpty(userName);
 }
-<h1>@Model.Place.Title</h1>
-<h2>@Model.Place.Description</h2>
+<div class="card">
+    @if (!String.IsNullOrEmpty(Model.Place.ImageUrl))
+    {
+        <img src="@Model.Place.ImageUrl" class="card-img-top" alt="image">
+    }
+    <div class="card-body">
+        <h5 class="card-title">Title: @Model.Place.Title</h5>
+        <p class="card-text">Description: @Model.Place.Description</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Category: @Model.Place.Category</li>
+        <li class="list-group-item">Address: @Model.Place.Address</li>
+        <li class="list-group-item">Rating: @Model.Place.Rating / 5</li>
+    </ul>
+</div>
 
 
+@{
+    foreach (Comment comment in Model.Comments)
+    {
+        <p>Comment: @comment.Text</p>
+    }
+}
+
+@{
+    if (!isLoggedIn)
+    {
+        <h2>To be able add comments, you have to login first</h2>
+        <a class="btn btn-primary" asp-area="" asp-page="../Authentication/Login">Login</a>
+    }
+    else
+    {
+        <form class="form-horizontal" method="post">
+            <div asp-validation-summary="ModelOnly"></div>
+
+            <div class="form-group">
+                <label asp-for="@Model.Comment.Text"></label>
+                <div class="form-group">
+                    <input asp-for="@Model.Comment.Text" type="text" class="form-control">
+                    <span asp-validation-for="@Model.Comment.Text" value="" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-group">
+                    <input asp-for="@Model.IdPlace" value="@Model.Place.Id" type="text" hidden="hidden" class="form-control">
+
+                </div>
+            </div>
 
 
+            <div class="form-group">
+
+                <button type="submit" class="btn btn-success col-md-12">
+                    Add Comment
+                </button>
+            </div>
+        </form>
+    }
+}

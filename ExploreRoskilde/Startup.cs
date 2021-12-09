@@ -29,6 +29,7 @@ namespace ExploreRoskilde
             services.AddRazorPages();
             services.AddSingleton<IPlacesCatalog, PlacesCatalog>();
             services.AddSingleton<IUsersCatalog, UsersCatalog>();
+            services.AddSingleton<ICommentsCatalog, CommentsCatalog>();
             services.AddSession();
         }
 

@@ -10,32 +10,45 @@ namespace ExploreRoskilde.Database
 {
     public static class Database
     {
-        public static string PlacesFilePath = "Database/Places.json";
-        public static string UsersFilePath = "Database/Places.json";
+        public const string PlacesFilePath = "Database/Places.json";
+        public const string UsersFilePath = "Database/Users.json";
+        public const string CommentsFilePath = "Database/Comments.json";
         
-        public static void WriteToJson(string filePath, Dictionary<string, Place> places)
+        public static void WriteToJsonPlaces(Dictionary<string, Place> places)
         {
             var output = JsonConvert.SerializeObject(places);
-            File.WriteAllText(filePath, output);
+            File.WriteAllText(PlacesFilePath, output);
         }
 
-        public static void WriteToJsonUsers(string filePath, Dictionary<string, User> users)
+        public static void WriteToJsonUsers(Dictionary<string, User> users)
         {
             var output = JsonConvert.SerializeObject(users);
-            File.WriteAllText(filePath, output);
+            File.WriteAllText(UsersFilePath, output);
         }
 
-        public static Dictionary<string, Place> ReadJson(string filePath)
+        public static Dictionary<string, Place> ReadJsonPlaces()
         {
-            var jsonString = File.ReadAllText(filePath);
+            var jsonString = File.ReadAllText(PlacesFilePath);
             return JsonConvert.DeserializeObject<Dictionary<string, Place>>(jsonString);
         }
 
-        public static Dictionary<string, User> ReadJsonUsers(string filePath)
+        public static Dictionary<string, User> ReadJsonUsers()
         {
-            var jsonString = File.ReadAllText(filePath);
+            var jsonString = File.ReadAllText(UsersFilePath);
             return JsonConvert.DeserializeObject<Dictionary<string, User>>(jsonString);
+        }
+        
+        
+        public static void WriteToJsonComments(Dictionary<string, Comment> users)
+        {
+            var output = JsonConvert.SerializeObject(users);
+            File.WriteAllText(CommentsFilePath, output);
+        }
 
+        public static Dictionary<string, Comment> ReadJsonComments()
+        {
+            var jsonString = File.ReadAllText(CommentsFilePath);
+            return JsonConvert.DeserializeObject<Dictionary<string, Comment>>(jsonString);
         }
     }
 }
