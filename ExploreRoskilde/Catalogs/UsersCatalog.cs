@@ -15,7 +15,7 @@ namespace ExploreRoskilde.Catalogs
    
     public class UsersCatalog : IUsersCatalog
     {
-        public Dictionary<string, User> AllUsers() => Database.Database.ReadJsonUsers(Database.Database.PlacesFilePath);
+        public Dictionary<string, User> AllUsers() => Database.Database.ReadJsonUsers();
 
         public User GetUserById(string id)
         {
@@ -29,6 +29,7 @@ namespace ExploreRoskilde.Catalogs
             string passwordHashed = pw.HashPassword(user.Email, user.Password);
             user.Password = passwordHashed;
             users.Add(user.Id, user);
+            Database.Database.WriteToJsonUsers(users);
         }
         
         public User Login(string email , string password)

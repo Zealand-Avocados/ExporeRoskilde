@@ -20,8 +20,8 @@
     <br />
 
     <label asp-for="Category" class="col-sm-3 control-label">
-            <select asp-items="Html.GetEnumSelectList<Category>()" asp-for="Category" form-control>
-                <option value="" selected="selected">All categories</option>
+            <select asp-items="Html.GetEnumSelectList<Category>()" asp-for="Category" class="form-select">
+                <option value="" selected>All categories</option>
             </select>
     </label>
 </form>

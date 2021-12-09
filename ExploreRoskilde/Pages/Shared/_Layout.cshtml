@@ -4,7 +4,9 @@
 @{
     bool isLoggedIn = !String.IsNullOrEmpty(Context.Session.GetString("user"));
 
+    string rights = Context.Session.GetString("right");
     string userName = Context.Session.GetString("user");
+
 }
 <html lang="en">
 <head>
@@ -49,6 +51,14 @@
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-page="">@userName</a>
                             </li>
+
+                            if (rights == "admin")
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-page="">Admin</a>
+                                </li>
+                            }
+
                         }
                     }
 
