@@ -11,19 +11,29 @@
 </div>
 
 <form method="get">
-    <div class="input-group">
-        <input class="form-control" asp-for="Search">
-        <div class="input-group-append">
-            <button class="btn btn-primary" type="submit">Search</button>
+    <div class="row">
+        
+        <div class="col-3">
+                    <label asp-for="Category"  style="width:100%;">
+                        <select asp-items="Html.GetEnumSelectList<Category>()" asp-for="Category" class=" form-control browser-default custom-select">
+                            <option value="" selected>All categories</option>
+                        </select>
+                    </label>
+                    </div>
+        
+        
+        
+        <div class="col-9">
+            
+            <div class="input-group-append">
+                <input class="form-control" asp-for="Search">
+                <button class="btn btn-primary" type="submit">Search</button>
+            </div>
         </div>
-    </div>
-    <br />
+        <br/>
 
-    <label asp-for="Category" class="col-sm-3 control-label">
-            <select asp-items="Html.GetEnumSelectList<Category>()" asp-for="Category" class="form-select">
-                <option value="" selected>All categories</option>
-            </select>
-    </label>
+        
+    </div>
 </form>
 
 <div class="row">
