@@ -2,13 +2,13 @@
 @model ExploreRoskilde.Pages.Places.RemovePlace
 
 @{
-   ViewData["Title"] = Model.Place.Title;
+    ViewData["Title"] = Model.Place.Title;
 }
 
 
 <h1 align="center">Delete Confirmation</h1>
 <div class="alert alert-secondary">
-     
+
     <div class="container">
         <h5 style="color: darkred;">Are you sure you want to delete PLACE - @Model.Place.Title</h5>
         <div class="row">
@@ -21,29 +21,46 @@
                 </div>
 
                 <div class="project-info-box alert alert-danger">
-                    <p><b><label asp-for="@Model.Place.Category"></label>:</b> @Model.Place.Category</p>
-                    <p><b><label asp-for="@Model.Place.Rating"></label>:</b> @Model.Place.Rating</p>
-                    <p><b><label asp-for="@Model.Place.Address.Street"></label>:</b> @Model.Place.Address.Street</p>
-                    <p><b><label asp-for="@Model.Place.Address.City"></label>:</b> @Model.Place.Address.City</p>
-                    <p><b><label asp-for="@Model.Place.Address.Country"></label>:</b> @Model.Place.Address.Country</p>
-                    <p><b><label asp-for="@Model.Place.Address.Zipcode"></label>:</b> @Model.Place.Address.Zipcode</p>
+                    <p>
+                        <b><label asp-for="@Model.Place.Category"></label>:</b> @Model.Place.Category
+                    </p>
+                    <p>
+                        <b><label asp-for="@Model.Place.Rating"></label>:</b> @Model.Place.Rating
+                    </p>
+                    <p>
+                        <b><label asp-for="@Model.Place.Address.Street"></label>:</b> @Model.Place.Address.Street
+                    </p>
+                    <p>
+                        <b><label asp-for="@Model.Place.Address.City"></label>:</b> @Model.Place.Address.City
+                    </p>
+                    <p>
+                        <b><label asp-for="@Model.Place.Address.Country"></label>:</b> @Model.Place.Address.Country
+                    </p>
+                    <p>
+                        <b><label asp-for="@Model.Place.Address.Zipcode"></label>:</b> @Model.Place.Address.Zipcode
+                    </p>
 
                 </div>
 
             </div>
 
             <div class=" mb-3 col-sm-6 col-12 p-0">
-                <img class="card-img-top" src="@Model.Place.ImageUrl" alt="project-image">
+                
+                @if (!string.IsNullOrEmpty(Model.Place.ImageUrl))
+                {
+                    <img class="card-img-top" src="@Model.Place.ImageUrl" alt="project-image">
+                }
+
             </div>
         </div>
 
     </div>
-    
+
 </div>
 
 <div align="center">
-<form method="post">
-            <button type="submit" class="btn btn-danger">Yes</button>
-            <a class="btn btn-primary" asp-page="/Index">No</a>
-        </form>
+    <form method="post">
+        <button type="submit" class="btn btn-danger">Yes</button>
+        <a class="btn btn-primary" asp-page="/Index">No</a>
+    </form>
 </div>
