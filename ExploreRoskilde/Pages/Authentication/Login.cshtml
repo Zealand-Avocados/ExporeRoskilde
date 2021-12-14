@@ -42,7 +42,7 @@
 -->
 
 
-<section class="vh-100 gradient-custom">
+<section class="vh-80 gradient-custom">
     <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-12 col-md-8 col-lg-6 col-xl-5">
@@ -54,36 +54,32 @@
                             <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
                             <p class="text-white-50 mb-5">Please enter your login and password!</p>
 
-                        <form method="post"> 
-                            <div class="form-outline form-white mb-4 text-lg-left">
-                                <label asp-for="Email">User Email</label>
-                                <input class="form-control form-control-lg" id="typeEmailX" type="email" asp-for="Email"/>
-                                <span asp-validation-for="Email" class="text-danger"></span>
+                            <form method="post"> 
+                                <div class="form-outline form-white mb-4 text-lg-left">
+                                    <label asp-for="Email">User Email</label>
+                                    <input class="form-control form-control-lg" id="typeEmailX" type="email" asp-for="Email"/>
+                                    <span asp-validation-for="Email" class="text-danger"></span>
 
-                            </div>
-
-                            <div class="form-outline form-white mb-4 text-lg-left">
-                                <label asp-for="Password">Password</label>
-                                <input class="form-control form-control-lg" type="password" asp-for="Password"/>
-                                <span asp-validation-for="Password" class="text-danger"></span>
-                            </div>
-
-                            <div class="row">
-                                <div class="col mt-3 text-center">
-                                    <input type="submit" value="Log in" class="btn btn-outline-light btn-lg px-5"/>
                                 </div>
-                            </div>
-                            </form>
 
+                                <div class="form-outline form-white mb-4 text-lg-left">
+                                    <label asp-for="Password">Password</label>
+                                    <input class="form-control form-control-lg" type="password" asp-for="Password"/>
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col mt-3 text-center">
+                                        <input type="submit" value="Log in" class="btn btn-outline-light btn-lg px-5"/>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
 
-                            <div>
-
-                                <p class="mb-0">Don't have an account? <a asp-page="/Authentication/Register" class="text-white-50 fw-bold">Sign up</a></p>
-                            </div>
-                    
+                        <div>
+                            <p class="mb-0">Don't have an account? <a asp-page="/Authentication/Register" class="text-white-50 fw-bold">Sign up</a></p>
+                        </div>
                     </div>
-                    
                 </div>
             </div>
         </div>
