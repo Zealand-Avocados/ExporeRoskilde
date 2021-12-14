@@ -4,7 +4,7 @@
 @{
     bool isLoggedIn = !String.IsNullOrEmpty(Context.Session.GetString("user"));
 
-    string rights = Context.Session.GetString("right");
+    string rights = Context.Session.GetString("rights");
     string userName = Context.Session.GetString("user");
 
 }

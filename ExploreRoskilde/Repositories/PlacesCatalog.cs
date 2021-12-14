@@ -1,9 +1,6 @@
-using System;
 using System.Collections.Generic;
 using ExploreRoskilde.Interfaces;
 using ExploreRoskilde.Models;
-using ExploreRoskilde.Database;
-using System;
 using System.Linq;
 
 namespace ExploreRoskilde.Repositories

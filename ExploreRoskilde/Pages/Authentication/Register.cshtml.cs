@@ -1,7 +1,6 @@
 using ExploreRoskilde.Interfaces;
 using ExploreRoskilde.Models;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -24,6 +23,7 @@ namespace ExploreRoskilde
 
         public IActionResult OnGet()
         {
+            HttpContext.Session.SetString("erMessage", "");
             return Page();
         }
 
@@ -34,20 +34,22 @@ namespace ExploreRoskilde
 
             if (Password1 != Password2)
             {
-                HttpContext.Session.SetString("erMessage", "passwords dont match");
+                HttpContext.Session.SetString("erMessage", "Passwords dont match");
                 return Page();
             }
                 
             User.Password = Password1;
 
 
-            _userService.Register(User);
-            
-
+            if (!_userService.Register(User))
+            {
+                HttpContext.Session.SetString("erMessage", "Email is used");
+                return Page();
+            }
+           
             HttpContext.Session.SetString("user", User.Username);
-
-            HttpContext.Session.SetString("right", User.IsAdmin ? "admin" : "user");
-
+            HttpContext.Session.SetString("rights", "normal");
+            HttpContext.Session.SetString("erMessage", "");
             return RedirectToPage("../Index");
         }
     }

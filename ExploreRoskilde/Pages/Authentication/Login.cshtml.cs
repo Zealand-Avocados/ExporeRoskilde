@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using ExploreRoskilde.Interfaces;
 using ExploreRoskilde.Models;
 using Microsoft.AspNetCore.Http;
@@ -25,14 +21,15 @@ namespace ExploreRoskilde
 
         public IActionResult OnGet()
         {
+            HttpContext.Session.SetString("erMessage", "");
             return Page();
         }
 
         public IActionResult OnPost()
         {
+            HttpContext.Session.SetString("erMessage", "");
             return CheckLogin();
         }
-
 
         private IActionResult CheckLogin()
         {
@@ -41,17 +38,17 @@ namespace ExploreRoskilde
             {
                 if (validUser.IsAdmin)
                 {
-                    HttpContext.Session.SetString("right", "admin");
                     HttpContext.Session.SetString("user", validUser.Username);
-                    return Redirect("~/Item/GetAllItems");
+                    HttpContext.Session.SetString("rights", "admin");
+                    return Redirect("/Index");
                 }
-
-                HttpContext.Session.SetString("right", "user");
                 HttpContext.Session.SetString("user", validUser.Username);
+                HttpContext.Session.SetString("rights", "normal");
                 return Redirect("/Index");
             }
 
-            return RedirectToPage("Login");
+            HttpContext.Session.SetString("erMessage", "Wrong password or email");
+            return Page();
         }
     }
 }

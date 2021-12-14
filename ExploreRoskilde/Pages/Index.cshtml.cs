@@ -40,10 +40,8 @@ namespace ExploreRoskilde.Pages
         {
             AllPlaces = catalog_places.AllPlaces();
             AllUsers = catalog_users.AllUsers();
-
             AllPlaces = catalog_places.Searching(Search, Category);
             
-
         }
     }
 }
