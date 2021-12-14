@@ -10,7 +10,7 @@ namespace ExploreRoskilde.Interfaces
     {
         public Dictionary<string, User> AllUsers();
         public User GetUserById(string id);
-        public void Register(User user);
+        public bool Register(User user);
         public User Login(string username, string password);
     }
 }

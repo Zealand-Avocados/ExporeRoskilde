@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using ExploreRoskilde.Interfaces;
 using ExploreRoskilde.Models;
 using Microsoft.AspNetCore.Http;
@@ -42,13 +38,13 @@ namespace ExploreRoskilde
             {
                 if (validUser.IsAdmin)
                 {
-                    HttpContext.Session.SetString("admin", validUser.Username);
+                    HttpContext.Session.SetString("user", validUser.Username);
                     HttpContext.Session.SetString("rights", "admin");
-                    return Redirect("~/Item/GetAllItems");
+                    return Redirect("/Index");
                 }
 
-                HttpContext.Session.SetString("normal", validUser.Username);
-                HttpContext.Session.SetString("rights", "user");
+                HttpContext.Session.SetString("user", validUser.Username);
+                HttpContext.Session.SetString("rights", "normal");
                 return Redirect("/Index");
             }
 
