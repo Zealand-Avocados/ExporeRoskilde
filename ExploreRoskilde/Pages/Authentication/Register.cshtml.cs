@@ -24,6 +24,7 @@ namespace ExploreRoskilde
 
         public IActionResult OnGet()
         {
+            HttpContext.Session.SetString("erMessage", "");
             return Page();
         }
 
@@ -40,12 +41,14 @@ namespace ExploreRoskilde
                 
             User.Password = Password1;
 
-
             _userService.Register(User);
            
             HttpContext.Session.SetString("user", User.Username);
 
+            HttpContext.Session.SetString("erMessage", "");
             return RedirectToPage("../Index");
         }
+
+           
     }
 }

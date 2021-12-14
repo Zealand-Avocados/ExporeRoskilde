@@ -1,12 +1,17 @@
 ﻿@page
 @model ExploreRoskilde.LoginModel
+@using Microsoft.AspNetCore.Http
 @{
+    string erMessage = HttpContext.Session.GetString("erMessage");
+
+    if (erMessage == null)
+        erMessage = "";
 }
 
 <div class="container">
     <div class="row justify-content-center pt-2">
         <div class="col-sm-4 py-4 login-box">
-              <div>
+            <div>
                 <form method="post">
                     <div class="form-group">
                         <label class="col-form-label-sm mb-0" asp-for="Email">User Name:</label>
@@ -18,12 +23,12 @@
                         <input class="form-control" type="text" asp-for="Password" />
                         <span asp-validation-for="Password" class="text-danger"></span>
                     </div>
-                   
                     <div class="row">
                         <div class="col mt-3 text-center">
                             <input type="submit" value="Log in" class="btn btn-dark text-light" />
                         </div>
                     </div>
+                    <span>@erMessage&nbsp</span>
                     <div class="row justify-content-center">
                         <div class="col text-center">
                             <span>You are not registered yet? Sign-up now:</span>

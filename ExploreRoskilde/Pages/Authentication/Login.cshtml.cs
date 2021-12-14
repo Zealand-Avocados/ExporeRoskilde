@@ -25,14 +25,15 @@ namespace ExploreRoskilde
 
         public IActionResult OnGet()
         {
+            HttpContext.Session.SetString("erMessage", "");
             return Page();
         }
 
         public IActionResult OnPost()
         {
+            HttpContext.Session.SetString("erMessage", "");
             return CheckLogin();
         }
-
 
         private IActionResult CheckLogin()
         {
@@ -42,16 +43,17 @@ namespace ExploreRoskilde
                 if (validUser.IsAdmin)
                 {
                     HttpContext.Session.SetString("admin", validUser.Username);
-                    HttpContext.Session.SetString("user", validUser.Username);
+                    HttpContext.Session.SetString("rights", "admin");
                     return Redirect("~/Item/GetAllItems");
                 }
 
                 HttpContext.Session.SetString("normal", validUser.Username);
-                HttpContext.Session.SetString("user", validUser.Username);
+                HttpContext.Session.SetString("rights", "user");
                 return Redirect("/Index");
             }
 
-            return RedirectToPage("Login");
+            HttpContext.Session.SetString("erMessage", "Wrong password or email");
+            return Page();
         }
     }
 }
