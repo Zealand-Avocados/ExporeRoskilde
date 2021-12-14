@@ -34,7 +34,7 @@ namespace ExploreRoskilde.Catalogs
         
         public User Login(string email , string password)
         {
-            User loggedIn = new User();
+            User loggedIn = null;
             foreach (var (_, value) in AllUsers())
             {
                 if (value.Email != email) continue;
