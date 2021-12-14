@@ -13,6 +13,7 @@ namespace ExploreRoskilde.Database
         public const string PlacesFilePath = "Database/Places.json";
         public const string UsersFilePath = "Database/Users.json";
         public const string CommentsFilePath = "Database/Comments.json";
+        public const string UserFavouritesFilePath = "Database/UserFavourites.json";
         
         public static void WriteToJsonPlaces(Dictionary<string, Place> places)
         {
@@ -49,6 +50,19 @@ namespace ExploreRoskilde.Database
         {
             var jsonString = File.ReadAllText(CommentsFilePath);
             return JsonConvert.DeserializeObject<Dictionary<string, Comment>>(jsonString);
+        }
+        
+        
+        public static void WriteToJsonUserFavourites(Dictionary<string, UserFavourites> users)
+        {
+            var output = JsonConvert.SerializeObject(users);
+            File.WriteAllText(UserFavouritesFilePath, output);
+        }
+
+        public static Dictionary<string, UserFavourites> ReadJsonUserFavourites()
+        {
+            var jsonString = File.ReadAllText(UserFavouritesFilePath);
+            return JsonConvert.DeserializeObject<Dictionary<string, UserFavourites>>(jsonString);
         }
     }
 }

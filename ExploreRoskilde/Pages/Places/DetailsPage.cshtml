@@ -5,8 +5,8 @@
 
 @{
     ViewData["Title"] = Model.Place.Title;
-    string userName = HttpContext.Session.GetString("user");
-    bool isLoggedIn = !String.IsNullOrEmpty(userName);
+    string username = HttpContext.Session.GetString("user");
+    bool isLoggedIn = !String.IsNullOrEmpty(username);
 }
 <div class="card mb-5">
     @if (!String.IsNullOrEmpty(Model.Place.ImageUrl))
@@ -21,6 +21,30 @@
         <li class="list-group-item">Category: @Model.Place.Category</li>
         <li class="list-group-item">Address: @Model.Place.Address</li>
         <li class="list-group-item">Rating: @Model.Place.Rating / 5</li>
+        @if (isLoggedIn)
+        {
+            <form class="form-horizontal" method="post" asp-page-handler="@(Model.IsUserFavourite ?  "RemoveUserFavourites" : "AddUserFavourites")">
+                <div asp-validation-summary="ModelOnly"></div>
+                <input asp-for="@Model.IdPlace" value="@Model.Place.Id" type="text" hidden="hidden" class="form-control">
+                <input asp-for="@Model.UserFavourites.Username" value="@username" type="text" hidden="hidden" class="form-control">
+                <button type="submit" class="btn btn-success col-md-12">
+                    @if (Model.IsUserFavourite)
+                    {
+                        <p>Remove from favourites</p>
+                    }
+                    else
+                    {
+                        <p>Add to favourites</p>
+                    }
+
+
+                </button>
+            </form>
+        }
+        else
+        {
+            <li class="list-group-item">To work with the favourites functionality, you have to login first</li>
+        }
     </ul>
 </div>
 
@@ -40,6 +64,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Author: @comment.Username</h5>
                     <p class="card-text">@comment.Text</p>
+
                 </div>
             </div>
         }
@@ -58,7 +83,7 @@
         }
         else
         {
-            <form class="form-horizontal" method="post">
+            <form class="form-horizontal" method="post" asp-page-handler="OnPost">
                 <div asp-validation-summary="ModelOnly"></div>
 
                 <div class="form-group">
