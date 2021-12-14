@@ -32,15 +32,13 @@ namespace ExploreRoskilde.Repositories
             places.Add(place.Id, place);
             Database.Database.WriteToJsonPlaces(places);
         }
-        
+
         public void DeletePlace(Place place)
         {
             Dictionary<string, Place> places = AllPlaces();
             places.Remove(place.Id);
             Database.Database.WriteToJsonPlaces(places);
         }
-        
-        
 
 
         public void UpdatePlace(Place place)
@@ -57,20 +55,17 @@ namespace ExploreRoskilde.Repositories
                 i.ImageUrl = place.ImageUrl;
                 break;
             }
+
             Database.Database.WriteToJsonPlaces(places);
         }
-        
-        
-        
-        
-        
-       
+
+
         public Dictionary<string, Place> Searching(string searching, int category)
         {
             Dictionary<string, Place> places = AllPlaces();
             Dictionary<string, Place> filteredPlaces = new Dictionary<string, Place>();
 
-            if ((string.IsNullOrEmpty(searching) == false) && (category < 1)) 
+            if ((string.IsNullOrEmpty(searching) == false) && (category < 1))
             {
                 foreach (var place in places)
                 {
@@ -82,26 +77,23 @@ namespace ExploreRoskilde.Repositories
 
                 return filteredPlaces;
             }
-            
-            else if(string.IsNullOrEmpty(searching) && (category > 0)) 
-            {
 
+            else if (string.IsNullOrEmpty(searching) && (category > 0))
+            {
                 foreach (var place in places)
                 {
-                    if ((int)place.Value.Category == category)
+                    if ((int) place.Value.Category == category)
                         filteredPlaces.Add(place.Key, place.Value);
                 }
-                    
+
                 return filteredPlaces;
             }
 
-            else if((string.IsNullOrEmpty(searching) == false) && (category > 0))
-            {   
-                
+            else if ((string.IsNullOrEmpty(searching) == false) && (category > 0))
+            {
                 foreach (var place in places)
                 {
-
-                    if(place.Value.Title.StartsWith(searching) && (int)place.Value.Category == category)
+                    if (place.Value.Title.StartsWith(searching) && (int) place.Value.Category == category)
                         filteredPlaces.Add(place.Key, place.Value);
                 }
 
@@ -113,6 +105,5 @@ namespace ExploreRoskilde.Repositories
                 return places;
             }
         }
-        
     }
 }
