@@ -35,7 +35,7 @@ namespace ExploreRoskilde.Pages.Places
         {
             ModelState.Clear();
             Place = _placesCatalog.GetPlaceById(id);
-            if (Place == null) return RedirectToPage("/NotFound");
+            if (Place == null) return RedirectToPage("./NotFound");
             Comments = _commentsCatalog.GetCommentsByPlaceId(id);
             IsUserFavourite = _userFavouritesCatalog.IsUserFavourite(id, HttpContext.Session.GetString("user"));
 

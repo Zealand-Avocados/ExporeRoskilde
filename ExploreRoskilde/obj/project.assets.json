@@ -59,9 +59,15 @@
       "packagesPath": "/Users/marholoubek/.nuget/packages/",
       "outputPath": "/Users/marholoubek/Documents/Coding/C#/ExploreRoskildeSolution/ExploreRoskilde/obj/",
       "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/Users/marholoubek/.nuget/NuGet/NuGet.Config"
+      ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",

@@ -14,7 +14,18 @@ namespace ExploreRoskilde.Repositories
 
         public Place GetPlaceById(string id)
         {
-            return AllPlaces()[id];
+            Place result;
+            try
+            {
+                result = AllPlaces()[id];
+
+            }
+            catch
+            {
+                result = null;
+            }
+
+            return result;
         }
 
 
