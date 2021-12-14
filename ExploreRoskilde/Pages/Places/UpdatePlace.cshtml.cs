@@ -22,7 +22,7 @@ namespace ExploreRoskilde.Pages.Places
         public IActionResult OnGet(String id)
         {
             Place = catalog.GetPlaceById(id);
-            if (Place == null) return RedirectToPage("/NotFound");
+            if (Place == null) return RedirectToPage("./NotFound");
             return Page();
 
         }
