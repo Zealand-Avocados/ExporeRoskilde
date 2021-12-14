@@ -22,7 +22,7 @@ namespace ExploreRoskilde.Catalogs
             Dictionary<string, User> users = AllUsers();
 
             var emailCheck = users.FirstOrDefault(u => u.Value.Email == user.Email);
-            if (!(emailCheck.Value == null))
+            if (emailCheck.Value != null)
                 return false;
 
             PasswordHasher<string> pw = new PasswordHasher<string>();
@@ -45,7 +45,7 @@ namespace ExploreRoskilde.Catalogs
                 loggedIn = verificationResult == PasswordVerificationResult.Success ? value : null;
                 return loggedIn;
             }
-            return loggedIn;
+            return null;
         }
 
         public void Logout()
