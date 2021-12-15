@@ -16,6 +16,11 @@ namespace ExploreRoskilde.Catalogs
         {
             return AllUsers()[id];
         }
+        
+        public User GetUserByUsername(string username)
+        {
+            return AllUsers().FirstOrDefault(i => i.Value.Username == username).Value;
+        }
 
         public bool Register(User user)
         {

@@ -12,5 +12,8 @@ namespace ExploreRoskilde.Interfaces
         public User GetUserById(string id);
         public bool Register(User user);
         public User Login(string username, string password);
+
+        public User GetUserByUsername(string username);
+
     }
 }
