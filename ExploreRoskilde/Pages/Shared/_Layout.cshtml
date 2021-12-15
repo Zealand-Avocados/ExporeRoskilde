@@ -32,9 +32,7 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-page="/Places/AddPlace">AddPlace</a>
-                    </li>
+                    
                     @{
                         if (!isLoggedIn)
                         {
@@ -45,6 +43,23 @@
                                 <a class="nav-link text-dark" asp-area="" asp-page="/Authentication/Login">Login</a>
                             </li>
                         }
+                        else if(rights == "admin")
+                                {
+                                <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Places/AddPlace">AddPlace</a>
+                                </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-page="">Admin</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-page="/ProfilePage">@userName</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-page="/Authentication/Logout">LogOut</a>
+                                    </li>
+                                    
+                                                           
+                                }
                         else
                         {
                             <li class="nav-item">
@@ -54,12 +69,7 @@
                                 <a class="nav-link text-dark" asp-area="" asp-page="/ProfilePage">@userName</a>
                             </li>
 
-                            if (rights == "admin")
-                            {
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-page="">Admin</a>
-                                </li>
-                            }
+                           
 
                         }
                     }
