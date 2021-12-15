@@ -1,11 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "O/1JitLbvmPQYry6yUwoRJonK8eljGh9JXI8ZT9vwB3VRUC4G7MXVeKGD0x2KQuKZ/dYMmk94ZRKUd0Q/eQ38w==",
+  "dgSpecHash": "Ht3xZ66KbBDcgg6f2QSJKLWRQ6TVsvxhc6diTKZ3ym8Kl6Hu1aKGzBaHXTMztk3CMuC2299rT9yFaW1PIGOmMQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Adamko\\Source\\Repos\\ExporeRoskilde\\ExploreRoskilde\\ExploreRoskilde.csproj",
+  "projectFilePath": "/Users/patrik/Desktop/ExporeRoskilde/ExploreRoskilde/ExploreRoskilde.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Adamko\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
-    "C:\\Users\\Adamko\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.21\\microsoft.netcore.app.host.win-x64.3.1.21.nupkg.sha512"
+    "/Users/patrik/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512"
   ],
   "logs": []
 }

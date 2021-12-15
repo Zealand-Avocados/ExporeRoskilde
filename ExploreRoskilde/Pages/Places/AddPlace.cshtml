@@ -6,7 +6,7 @@
 @{
     ViewData["Title"] = "Add Place";
 }
-<h1 align="center" style="color: #00a02f;">@ViewData["Title"]</h1>
+<h1 align="center">@ViewData["Title"]</h1>
 
 
 <form class="form-horizontal" method="post">
@@ -14,7 +14,7 @@
   
     
         <div class="form-group">
-            <label asp-for="@Model.Place.Title"></label>
+            <b><label style="color: #7a7a7a" asp-for="@Model.Place.Title"></label></b>
             <div class="form-group">
                 <input asp-for="@Model.Place.Title" type="text" class="form-control">
                 <span asp-validation-for="@Model.Place.Title" class="text-danger"></span>
@@ -22,27 +22,27 @@
         </div>
     
         <div class="form-group">
-            <label asp-for="@Model.Place.Description" for="exampleFormControlTextarea1"></label>
+            <b><label style="color: #7a7a7a" asp-for="@Model.Place.Description" for="exampleFormControlTextarea1"></label></b>
             <textarea asp-for="@Model.Place.Description" type="text" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
             <span asp-validation-for="@Model.Place.Description" class="text-danger"></span>
         </div>
     
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label asp-for="@Model.Place.Category"></label>
+               <b> <label style="color: #7a7a7a" asp-for="@Model.Place.Category"></label></b>
                 <select asp-for="@Model.Place.Category" asp-items="Html.GetEnumSelectList<Category>()" class="form-control"></select>
                 <span asp-validation-for="@Model.Place.Category" class="text-danger"></span>
             </div>
     
             <div class="form-group col-md-6">
-                <label asp-for="@Model.Place.Rating"></label>
+                <b><label style="color: #7a7a7a" asp-for="@Model.Place.Rating"></label></b>
                 <select asp-for="@Model.Place.Rating" asp-items="Html.GetEnumSelectList<Rating>()" class="form-control"></select>
                 <span asp-validation-for="@Model.Place.Rating" class="text-danger"></span>
             </div>
         </div>
     
         <div class="form-group">
-            <label asp-for="@Model.Place.ImageUrl"></label>
+           <b> <label style="color: #7a7a7a" asp-for="@Model.Place.ImageUrl"></label></b>
             <div class="form-group">
                 <input asp-for="@Model.Place.ImageUrl" type="text" class="form-control">
                 <span asp-validation-for="@Model.Place.ImageUrl" class="text-danger"></span>
@@ -52,13 +52,13 @@
     
         <div class="form-row">
             <div class="form-group col-md-6">
-                       <label asp-for="@Model.Place.Address.Street"></label>
+                       <b><label style="color: #7a7a7a" asp-for="@Model.Place.Address.Street"></label></b>
                        <input asp-for="@Model.Place.Address.Street" type="text" class="form-control">
                        <span asp-validation-for="@Model.Place.Address.Street" class="text-danger"></span>
                    </div>
     
             <div class="form-group col-md-6">
-                       <label asp-for="@Model.Place.Address.City"></label>
+                       <b><label style="color: #7a7a7a" asp-for="@Model.Place.Address.City"></label></b>
                        <input asp-for="@Model.Place.Address.City" type="text" class="form-control">
                        <span asp-validation-for="@Model.Place.Address.City" class="text-danger"></span>
                        </div>
@@ -66,13 +66,13 @@
         
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label asp-for="@Model.Place.Address.Country"></label>
+                <b><label style="color: #7a7a7a" asp-for="@Model.Place.Address.Country"></label></b>
                 <input asp-for="@Model.Place.Address.Country" type="text" class="form-control">
                 <span asp-validation-for="@Model.Place.Address.Country" class="text-danger"></span>
                 </div>
         
             <div class="form-group col-md-6">
-                        <label asp-for="@Model.Place.Address.Zipcode"></label>
+                        <b><label style="color: #7a7a7a" asp-for="@Model.Place.Address.Zipcode"></label></b>
                         <input asp-for="@Model.Place.Address.Zipcode" type="text" class="form-control">
                         <span asp-validation-for="@Model.Place.Address.Zipcode" class="text-danger"></span>
                     </div>
@@ -80,7 +80,7 @@
 
     <div class="form-group">
         
-            <button type="submit" class="btn btn-success col-md-12">
+            <button type="submit"  class="btn btn-info col-md-12">
                 Add Place
             </button>
         </div>
