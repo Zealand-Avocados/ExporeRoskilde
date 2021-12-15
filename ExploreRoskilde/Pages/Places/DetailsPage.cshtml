@@ -14,13 +14,13 @@
         <img src="@Model.Place.ImageUrl" class="card-img-top" alt="image">
     }
     <div class="card-body">
-        <h5 class="card-title">Title: @Model.Place.Title</h5>
-        <p class="card-text">Description: @Model.Place.Description</p>
+        <h5 class="card-title"><b>Title:</b> @Model.Place.Title</h5>
+        <p class="card-text"><b>Description:</b> @Model.Place.Description</p>
     </div>
     <ul class="list-group list-group-flush">
-        <li class="list-group-item">Category: @Model.Place.Category</li>
-        <li class="list-group-item">Address: @Model.Place.Address</li>
-        <li class="list-group-item">Rating: @Model.Place.Rating / 5</li>
+        <li class="list-group-item"><b>Category:</b> @Model.Place.Category</li>
+        <li class="list-group-item"><b>Address:</b> @Model.Place.Address</li>
+        <li class="list-group-item"><b>Rating:</b> @Model.Place.Rating / 5</li>
         @if (isLoggedIn)
         {
             <form class="form-horizontal" method="post" asp-page-handler="@(Model.IsUserFavourite ?  "RemoveUserFavourites" : "AddUserFavourites")">
@@ -50,13 +50,18 @@
 
 
 <h2 class="my-4">Comments:</h2>
-<div class="row d-flex justify-content-between">
+
+@{
+    if (Model.Comments.Count == 0)
+    {
+        <h2 class="my-4">No Comments Yet :/</h2>
+    }
+}
+
+<div class="row d-flex justify-content-between my-4">
 
     @{
-        if (Model.Comments.Count == 0)
-        {
-            <h3>No Comments Yet :/</h3>
-        }
+       
         foreach (Comment comment in Model.Comments)
         {
             <div class="card text-dark bg-light mb-3 col-4 col-sm-12" style="max-width: 18rem;">
@@ -89,7 +94,7 @@
                 <div class="form-group">
                     <label asp-for="@Model.Comment.Text">What're you saying about this place?</label>
                     <div class="form-group">
-                        <input asp-for="@Model.Comment.Text" type="text" class="form-control">
+                        <textarea asp-for="@Model.Comment.Text" type="text" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                         <span asp-validation-for="@Model.Comment.Text" value="" class="text-danger"></span>
                     </div>
                 </div>

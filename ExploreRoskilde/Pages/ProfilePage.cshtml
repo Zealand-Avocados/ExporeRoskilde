@@ -6,20 +6,49 @@
     ViewData["Title"] = "ProfilePage";
 }
 
-<div class="my-3">
-    <h3>Username: @Model.LoggedUser.Username</h3>
-    <h3>Email: @Model.LoggedUser.Email</h3>
-</div>
 
-<div class="my-3">
-    <h2>Your Favourite Places</h2>
+<table class="table">
+  
+  <tbody>
+    <tr>
+      <th scope="row">UserName:</th>
+        <td>@Model.LoggedUser.Username</td>
+    </tr>
+  <tr>
+      <th scope="row">Email:</th>
+      <td>@Model.LoggedUser.Email</td>
+  </tr>
+   <tr>
+        <th></th>
+        <td></td>
+      </tr>
+  </tbody>
+</table>
+
+
+
+
+
+
+    <h2 class="my-4">Your Favourite Places:</h2>
+    
+
+<div class="row p-3">
+
     @foreach (Place place in Model.UserFavouritesList)
     {
-        <div class="card">
+        <div class="card mb-3 col-sm-6 col-12 p-0">
+            @{
+                if (!string.IsNullOrEmpty(place.ImageUrl))
+                {
+                    <img src="@place.ImageUrl" class="card-img-top" alt="place image">
+
+                }
+            }
             <div class="card-body">
                 <h5 class="card-title">@place.Title</h5>
-                <p class="card-text">@place.Description</p>
-                <a class="btn btn-primary" asp-page="./Places/DetailsPage" asp-route-id="@place.Id">More info</a>
+                <a class="btn btn-primary" asp-page="Places/DetailsPage" asp-route-id="@place.Id">More info</a>
+               
             </div>
         </div>
     }
