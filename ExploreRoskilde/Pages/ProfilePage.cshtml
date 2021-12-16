@@ -1,9 +1,15 @@
 @page
 @using ExploreRoskilde.Models
+@using Microsoft.AspNetCore.Http
 @model ExploreRoskilde.Pages.ProfilePage
+
+
+
+
 
 @{
     ViewData["Title"] = "ProfilePage";
+    string rights = HttpContext.Session.GetString("rights");
 }
 
 
@@ -24,15 +30,11 @@
       </tr>
   </tbody>
 </table>
-
-
-
-
-
-
-    <h2 class="my-4">Your Favourite Places:</h2>
-    
-
+       @if (rights != "admin")
+       {
+           <h2 class="my-4">Your Favourite Places:</h2>
+        }
+        
 <div class="row p-3">
 
     @foreach (Place place in Model.UserFavouritesList)
