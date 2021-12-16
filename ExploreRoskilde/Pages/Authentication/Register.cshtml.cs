@@ -32,14 +32,19 @@ namespace ExploreRoskilde
             if (!ModelState.IsValid)
                 return Page();
 
+            if (User.Email == null || User.Username == null || Password1 == null || Password2 == null)
+            {
+                HttpContext.Session.SetString("erMessage", "All fields must be filled up");
+                return Page();
+            }
+
             if (Password1 != Password2)
             {
                 HttpContext.Session.SetString("erMessage", "Passwords dont match");
                 return Page();
             }
-                
-            User.Password = Password1;
 
+            User.Password = Password1;
 
             if (!_userService.Register(User))
             {
